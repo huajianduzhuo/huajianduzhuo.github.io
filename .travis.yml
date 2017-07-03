@@ -24,7 +24,7 @@ after_script:
 
 branches:
   only:
-    - blog-source
+    - hexo_source
 env:
  global:
    - GH_REF: github.com/huajianduzhuo/huajianduzhuo.github.io.git
