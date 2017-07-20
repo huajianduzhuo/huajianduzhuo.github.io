@@ -5,7 +5,8 @@ tags: [CSS3, 3D, 魔方]
 categories: CSS3
 ---
 
-分享一个使用 CSS 3 制作的自动旋转魔方。GitHub地址：[https://github.com/huajianduzhuo/CSS-3](https://github.com/huajianduzhuo/CSS-3)
+分享一个使用 CSS 3 制作的自动旋转魔方。
+GitHub地址：[https://github.com/huajianduzhuo/CSS-3](https://github.com/huajianduzhuo/CSS-3)
 
 <!--more-->
 

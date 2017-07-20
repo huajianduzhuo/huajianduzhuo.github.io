@@ -5,8 +5,8 @@ tags: [jquery, 贪吃蛇]
 categories: 小游戏
 ---
 
-下面是我用 HTML4 + CSS2 + jquery 完成的“贪吃蛇”小游戏，项目 github 地址：
-https://github.com/huajianduzhuo/TanChiShe
+下面是我用 HTML4 + CSS2 + jquery 完成的“贪吃蛇”小游戏。
+项目 github 地址：https://github.com/huajianduzhuo/TanChiShe
 
 <!--more-->
 方向：上下左右 或 wasd
