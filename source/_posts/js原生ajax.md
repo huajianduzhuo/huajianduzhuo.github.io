@@ -92,3 +92,35 @@ xhr.onreadystatechange = function () {
     }
 }
 ```
+
+## IE 浏览器兼容性处理
+
+IE 6 及更低版本 IE 浏览器不支持 XMLHttpRequest 对象，所以需要做兼容性处理。
+
+* IE6 浏览器 ajax 核心对象：
+
+        var xhr = new ActiveXObject("Msxml2.XMLHTTP");
+
+* 更低版本 IE 浏览器 ajax 核心对象：
+
+        var xhr = new ActiveXObject("Microsoft.XMLHTTP");
+
+其他步骤与 XMLHttpRequest 方式相同。
+
+ajax 兼容性处理方法：将获取 ajax 核心对象的代码封装到函数中：
+
+```
+function getXHR() {
+    try {
+        return new XMLHttpRequest();
+    }catch(e){
+        try{
+            //兼容IE6的方式
+            return new ActiveXObject("Msxml2.XMLHTTP");
+        }catch (e){
+            //更老版本的ie
+            return new ActiveXObject("Microsoft.XMLHTTP");
+        }
+    }
+}
+```
