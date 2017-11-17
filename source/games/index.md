@@ -24,25 +24,38 @@ comments: false
         border-radius: 5px;
         padding-left: 30px;
     }
-    #games li img{
-        position: absolute;
-        top: 10px;
-        bottom 10px;
+
+    @media (max-width: 768px) {
+        #games{
+            padding: 0;
+        }
+
+        #games li img{
+            width: 80%;
+        }
     }
-    #games li .img1{
-        right: 20px;
-        width: 150px;
-    }
-    #games li .img2{
-        width: 250px;
-        right: 5px;
-        top: 0;
-        bottom: 0;
-        margin: auto 0;
-    }
-    #games li .img3{
-        right: 10px;
-        width: 220px;
+
+    @media (min-width: 768px) {
+        #games li img{
+            position: absolute;
+            top: 10px;
+            bottom 10px;
+        }
+        #games li .img1{
+            right: 20px;
+            width: 150px;
+        }
+        #games li .img2{
+            width: 250px;
+            right: 5px;
+            top: 0;
+            bottom: 0;
+            margin: auto 0;
+        }
+        #games li .img3{
+            right: 10px;
+            width: 220px;
+        }
     }
 </style>
 
