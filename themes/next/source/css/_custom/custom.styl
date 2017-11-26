@@ -1,0 +1,241 @@
+// Custom styles.
+body {
+  //background:url(/images/background3.jpg) no-repeat;
+  //background-attachment: fixed;
+  //background-size: cover;
+  line-height: 1.7;
+  color: #555;
+  background-color: #efefef;
+  font-size: 15px;
+}
+p {
+    margin: 0 0 15px 0;
+}
+
+//首页文章阴影样式
+.post {
+    margin-top: 60px;
+    margin-bottom: 60px;
+    padding: 25px;
+    -webkit-box-shadow: 0 0 14px rgba(202, 203, 203, .5);
+    -moz-box-shadow: 0 0 14px rgba(202, 203, 204, .5);
+}
+// 列表样式
+.posts-expand .post-body ul li{
+	list-style: disc;
+}
+//热评文章
+.ds-top-threads li a {
+    padding-left: 5px;
+    transition: border-width 0.2s linear 0s, color 0.2s linear 0s;
+    border-bottom: none;
+}
+.ds-top-threads li a:hover {
+    border-left: 8px solid #4d768c;
+}
+//首页头部样式
+.header {
+    background: url("/images/header-bk.jpg");
+	height: 20vh;
+}
+.site-meta {
+    float: none;
+}
+.menu {
+    float: none;
+}
+.logo-line-before,
+.logo-line-after {
+    display: none;
+}
+.menu .menu-item a {
+    font-size: 14px;
+    color: #ebcc5a;
+    border-radius: 4px;
+}
+.menu .menu-item a:hover{
+	color: #649ab6;
+}
+.site-meta {
+    margin-left: 0px;
+    text-align: center;
+}
+.site-meta .site-title {
+    font-size: 33px;
+    font-family: '楷体', 'Comic Sans MS', sans-serif;
+    color: #fff;
+}
+//首页尾部样式
+.footer {
+    background: none;
+    font-size: 16px;
+}
+.footer-inner {
+    font-family: 'Comic Sans MS', sans-serif;
+    text-align: center;
+    color: #4c618f;
+}
+//侧边栏信息样式修改
+.site-author-name {
+    margin: 20px 0 0;
+    color: #090909;
+    font-family: 'Comic Sans MS', sans-serif;
+}
+.links-of-blogroll {
+    font-size: 14px;
+    margin-bottom: 42px;
+}
+.links-of-author {
+    margin-top: 20px;
+    margin-bottom: 17px;
+}
+.links-of-author a{
+	font-size: 15px;
+}
+.links-of-author a::before {
+	background: #666;
+}
+.sidebar-inner {
+    color: #649ab6;
+}
+.sidebar {
+    box-shadow: inset 2px 2px 40px #bdb2b2;
+	position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 0;
+    z-index: 1040;
+    //background: url(/images/side1.jpg) 0 0 no-repeat;
+	//background-size: cover;
+	background: #efefef;
+    -webkit-transform: translateZ(0);
+}
+.sidebar a {
+    color: #666;
+}
+.sidebar a:hover {
+    color: #0c0b0b;
+}
+.site-state-item {
+    display: inline-block;
+    padding: 8px 28px;
+    border-left: 1px solid #666;
+}
+.sidebar-nav .sidebar-nav-active {
+    color: #649ab6;
+    border-bottom-color: #649ab6;
+}
+.sidebar-nav li:hover {
+    color: #0c0b0b;
+}
+//侧栏按钮样式
+.sidebar-toggle {
+    background: #649ab6;
+}
+.back-to-top {
+    background: #649ab6;
+}
+//文章目录样式
+.post-toc .nav .active>a {
+    color: #4f7e96;
+}
+.post-toc ol a:hover {
+    color: #7784ba;
+}
+.sidebar-nav .sidebar-nav-active:hover {
+    color: #37596c;
+}
+a {
+    border-bottom: none;
+}
+//首页阅读全文样式
+.post-button {
+    margin-top: 30px;
+    text-align: center;
+}
+.post-button .btn {
+    color: #fff;
+    font-size: 15px;
+    background: #686868;
+    border-radius: 16px;
+    line-height: 2;
+    margin: 0 4px 8px 4px;
+    padding: 0 20px;
+}
+.post-button a{
+  border-bottom: 1px solid #666;
+}
+.post-button a:hover {
+    color: #7784ba;
+}
+
+//首页文章之间间隔
+.posts-expand .post{
+	margin-top: 80px;
+	background-color: #fff;
+	border-radius: 4px;
+}
+// 文章标题样式
+.posts-expand .post-title:hover{
+	border-left: #649ab6 20px solid;
+    padding-left: 15px;
+    cursor: pointer;
+    transition: border-width 0.3s linear 0.1s, color 0.2s linear 0.3s;
+}
+
+// 头像
+.site-author-image{
+	border: 1px solid #ddd;
+    border-radius: 10%;
+	webkit-transition: 1.4s all;
+    moz-transition: 1.4s all;
+    ms-transition: 1.4s all;
+	transition: 1.4s all;
+}
+.site-author-image:hover{
+	-webkit-transform: rotate(360deg) scale(0.7);
+    -moz-transform: rotate(360deg) scale(0.7);
+    -ms-transform: rotate(360deg) scale(0.7);
+    -o-transform: rotate(360deg) scale(0.7);
+	transform: rotate(360deg) scale(0.7);
+}
+// 引用
+blockquote {
+    padding: 0 20px;
+    color: #555;
+    border-left: 3px solid #009A61;
+    background: #eeecec;
+	line-height: 2;
+}
+// 标题
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+	color: #111;
+}
+.post-body a {
+    color: #009a61;
+}
+.post-body a:hover {
+    color: #037c4f;
+}
+// 代码段
+code {
+	background: #d9d9d9;
+}
+
+// 表格
+table {
+	border: 1px solid #c5c2c2;
+}
+th, td {
+    border-bottom: 1px solid #c5c2c2;
+    border-right: 1px solid #c5c2c2;
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
