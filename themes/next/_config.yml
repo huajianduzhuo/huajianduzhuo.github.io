@@ -51,7 +51,7 @@ menu:
   about: /about
   #sitemap: /sitemap.xml
   #commonweal: /404.html
-  board: /board
+  #board: /board
   games: /games
 
 
@@ -330,9 +330,9 @@ changyan:
   appid:
   appkey:
 
-# Support for youyan comments system.
+# Support for youyan comments system.  2138596
 # You can get your uid from http://www.uyan.cc
-youyan_uid: 2138596
+youyan_uid: 
 
 # Support for LiveRe comments system.
 # You can get your uid from https://livere.com/insight/myCode (General web site)
@@ -589,7 +589,7 @@ vendors:
   # https://github.com/ethantw/Han
   han:
 
-  # ÎÄÕÂÄ©Î²Ìí¼Ó¡°±¾ÎÄ½áÊø¡±±ê¼Ç
+  # ï¿½ï¿½ï¿½ï¿½Ä©Î²ï¿½ï¿½Ó¡ï¿½ï¿½ï¿½ï¿½Ä½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
   passage_end_tag:
 	enabled: true
 	
