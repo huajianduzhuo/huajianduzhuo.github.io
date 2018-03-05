@@ -52,6 +52,13 @@ export default {
     setupWebViewJavascriptBridge(function (bridge) {
       bridge.callHandler(name, data, callback)
     })
+  },
+  registerhandler (name, callback) {
+    setupWebViewJavascriptBridge(function (bridge) {
+      bridge.registerHandler(name, function (data, responseCallback) {
+        callback(data, responseCallback)
+      })
+    })
   }
 }
 ```
@@ -66,13 +73,11 @@ this.$bridge.callhandler('ObjC Echo', params, (data) => {
   // 处理返回数据
 })
 ```
-* 当客户端需要调用 js 函数时,只需要在 bridge.js 文件中注册约定好的函数即可
+* 当客户端需要调用 js 函数时,事先注册约定好的函数即可
 ```JavaScript
-setupWebViewJavascriptBridge(function (bridge) {
-  bridge.registerHandler('JS Echo', function(data, responseCallback) {
-    console.log("JS Echo called with:", data)
-    responseCallback(data)
-  })
+this.$bridge.registerhandler('JS Echo', (data, responseCallback) => {
+  alert('JS Echo called with:', data)
+  responseCallback(data)
 })
 ```
 
