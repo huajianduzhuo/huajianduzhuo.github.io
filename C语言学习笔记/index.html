@@ -1,0 +1,1633 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next mist" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="C语言,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="勤，以随心" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.1">
+
+
+
+
+
+
+<meta name="description" content="慕课网课程地址：https://www.imooc.com/learn/249">
+<meta name="keywords" content="C语言">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C语言学习笔记">
+<meta property="og:url" content="http://mengyujing.com/C语言学习笔记/index.html">
+<meta property="og:site_name" content="勤，以随心">
+<meta property="og:description" content="慕课网课程地址：https://www.imooc.com/learn/249">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://ovqy85q1k.bkt.clouddn.com/datatype.jpg">
+<meta property="og:image" content="http://ovqy85q1k.bkt.clouddn.com/typetransform.jpg">
+<meta property="og:image" content="http://ovqy85q1k.bkt.clouddn.com/youxianji.jpg">
+<meta property="og:image" content="http://ovqy85q1k.bkt.clouddn.com/defineFun.jpg">
+<meta property="og:updated_time" content="2019-10-24T11:41:37.155Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C语言学习笔记">
+<meta name="twitter:description" content="慕课网课程地址：https://www.imooc.com/learn/249">
+<meta name="twitter:image" content="http://ovqy85q1k.bkt.clouddn.com/datatype.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: false,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://mengyujing.com/C语言学习笔记/">
+
+
+
+
+
+  <title>C语言学习笔记 | 勤，以随心</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">勤，以随心</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-games">
+          <a href="/games" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-gamepad"></i> <br>
+            
+            游戏
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://mengyujing.com/C语言学习笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="孟玉晶">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="勤，以随心">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">C语言学习笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-22T16:28:02+08:00">
+                2018-04-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C语言/" itemprop="url" rel="index">
+                    <span itemprop="name">C语言</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+		  
+
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"> 阅读</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  3,523
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  13
+                </span>
+              
+            </div>
+           
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>慕课网课程地址：<a href="https://www.imooc.com/learn/249" target="_blank" rel="noopener">https://www.imooc.com/learn/249</a></p>
+<a id="more"></a>
+<h1 id="认识C程序"><a href="#认识C程序" class="headerlink" title="认识C程序"></a>认识C程序</h1><p>简单来说，一个C程序就是由若干<strong>头文件</strong>和<strong>函数</strong>组成。</p>
+<p>一个简单的 Hello World C 程序</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"Hello World\n"</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上C程序代码中，<code>#include&lt;stdio.h&gt;</code> 为包含头文件，<code>int main(){}</code> 为主函数。</p>
+<ul>
+<li><p><code>#include&lt;stdio.h&gt;</code> 就是一条预处理命令，它的作用是通知C语言编译系统在对C程序进行正式编译之前需要做一些预处理工作</p>
+</li>
+<li><p>函数就是实现代码逻辑的一个小的单元</p>
+<blockquote>
+<p>在最新的C标准中，main 函数前的类型为 int 而不是 void</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="主函数"><a href="#主函数" class="headerlink" title="主函数"></a>主函数</h2><p>一个C程序<strong>有且只有一个主函数</strong>，即 <strong>main</strong> 函数。C程序就是执行主函数里的代码，也可以说主函数就是C语言中的<strong>唯一入口</strong>。</p>
+<p>main 前面的 <strong>int</strong> 就是主<strong>函数的类型</strong>。</p>
+<p>printf() 是格式输出函数，功能就是在屏幕上输出指定的信息。</p>
+<p><strong>return 是函数的返回值</strong>，根据函数类型的不同，返回的值也是不同的。</p>
+<p>\n 是转义字符。</p>
+<h2 id="编写规范"><a href="#编写规范" class="headerlink" title="编写规范"></a>编写规范</h2><ul>
+<li>一个说明或一个语句占一行，例如：包含头文件、一个可执行语句结束都需要换行</li>
+<li>函数体内的语句要有明显缩进</li>
+<li>括号要成对写</li>
+<li>当一句可执行语句结束的时候末尾需要有分号</li>
+</ul>
+<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><p>多行注释： /* 注释内容 */<br>单行注释： // 注释一行</p>
+<h1 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h1><p>C语言中，数据类型可分为：<strong>基本数据类型、构造数据类型、指针类型、空类型</strong>四大类。</p>
+<p><img src="http://ovqy85q1k.bkt.clouddn.com/datatype.jpg" alt="datatype"></p>
+<h2 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h2><p>给变量或者函数起的名字就是标识符，标识符可以是<strong>字母（A~Z, a~z）、数字（0~9）、下划线_</strong>组成的字符串，并且<strong>第一个字符必须是字母或者下划线</strong>。</p>
+<p>在使用标识符时还要注意以下几点：</p>
+<ul>
+<li>长度最好不要超过8位，因为在某些版本的C中规定标识符前8位有效，当两个标识符前8位相同时，则被认为是同一个标识符</li>
+<li>标识符是严格<strong>区分大小写</strong>的</li>
+<li>最好选择有意义的英文单词</li>
+<li>标识符<strong>不能是C语言的关键字</strong></li>
+</ul>
+<h2 id="变量及赋值"><a href="#变量及赋值" class="headerlink" title="变量及赋值"></a>变量及赋值</h2><p>变量定义的一半形式：<strong>数据类型 变量名;</strong></p>
+<p>多个类型相同的变量：<strong>数据类型 变量名, 变量名, 变量名…;</strong></p>
+<p>变量的赋值：</p>
+<ul>
+<li>先声明再赋值</li>
+<li>声明的同时赋值</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> num = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> a, b;</span><br><span class="line">a = <span class="number">1</span>;</span><br><span class="line">b = <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="基本数据类型-1"><a href="#基本数据类型-1" class="headerlink" title="基本数据类型"></a>基本数据类型</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">数据类型</th>
+<th style="text-align:center">说明</th>
+<th style="text-align:center">字节</th>
+<th style="text-align:center">应用</th>
+<th style="text-align:center">示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">char</td>
+<td style="text-align:center">字符型</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">用于存储单个字符</td>
+<td style="text-align:center">char sex = ‘m’;</td>
+</tr>
+<tr>
+<td style="text-align:center">int</td>
+<td style="text-align:center">整型</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">用于存储整数</td>
+<td style="text-align:center">int height = 18;</td>
+</tr>
+<tr>
+<td style="text-align:center">float</td>
+<td style="text-align:center">单精度浮点型</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">用于存储小数</td>
+<td style="text-align:center">float price = 11.1;</td>
+</tr>
+<tr>
+<td style="text-align:center">double</td>
+<td style="text-align:center">双精度浮点型</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">用于存储位数更多的小数</td>
+<td style="text-align:center">double pi = 3.1415926;</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>C语言中不存在字符串变量，字符串只能存在于字符数组中。</p>
+</blockquote>
+<h2 id="格式化输出语句"><a href="#格式化输出语句" class="headerlink" title="格式化输出语句"></a>格式化输出语句</h2><p>格式化输出语句，也可以说是占位输出，是将各种类型的数据按照格式化后的类型及指定的位置从计算机上显示。</p>
+<p>格式：<strong>printf(“输出格式符”, 输出项);</strong></p>
+<p>常用格式化符：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">格式符</th>
+<th style="text-align:center">说明 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">%d</td>
+<td style="text-align:center">带符号十进制整数</td>
+</tr>
+<tr>
+<td style="text-align:center">%c</td>
+<td style="text-align:center">单个字符</td>
+</tr>
+<tr>
+<td style="text-align:center">%s</td>
+<td style="text-align:center">字符串</td>
+</tr>
+<tr>
+<td style="text-align:center">%f</td>
+<td style="text-align:center">6位小数</td>
+</tr>
+</tbody>
+</table>
+<p>输出多个变量，变量之间用逗号隔开</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">float</span> b = <span class="number">7.56</span>;</span><br><span class="line"><span class="keyword">char</span> c = <span class="string">'c'</span>;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"整数：%d，小数：%f，字符：%c"</span>, a, b, c);</span><br><span class="line"><span class="comment">// 整数：10，小数：7.560000，字符：c</span></span><br></pre></td></tr></table></figure>
+<h2 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h2><p>C语言中常量可以分为<strong>直接常量和符号常量</strong></p>
+<p>直接常量也成为字面量，可以直接拿来使用，无需定义。</p>
+<p>可以使用一个标识符来表示一个常量，称之为符号常量。符号常量在使用之前必须先定义，一般形式为：</p>
+<p><strong>#define 标识符 常量值</strong></p>
+<p>符号常量的标识符一般习惯使用大写字母，变量的标识符习惯使用小写字母，加以区分。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PI 3.14</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"圆周率：%f\n"</span>, PI);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="自动类型转换"><a href="#自动类型转换" class="headerlink" title="自动类型转换"></a>自动类型转换</h2><p>自动转换发生在不同数据类型运算时，在编译的时候自动完成。自动转换遵循的规则就好比小盒子可以放进大盒子里，下图表示自动转换规则：</p>
+<p><img src="http://ovqy85q1k.bkt.clouddn.com/typetransform.jpg" alt="typetransform"></p>
+<p>char类型数据转换为int类型数据遵循ASCII码中的对应值</p>
+<blockquote>
+<p>字节小的可以向字节大的自动转换，但字节大的不能向字节小的自动转换</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> c = <span class="string">'a'</span>;</span><br><span class="line">    <span class="keyword">int</span> n = c;        <span class="comment">//将c赋值给n</span></span><br><span class="line">    <span class="keyword">float</span> f = c;      <span class="comment">//将c赋值给f</span></span><br><span class="line">    <span class="keyword">double</span> d = c;     <span class="comment">//将c赋值给d</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,n); <span class="comment">// 97</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%f\n"</span>,f); <span class="comment">// 97.000000</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%lf\n"</span>,d); <span class="comment">// 97.000000</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="强制类型转换"><a href="#强制类型转换" class="headerlink" title="强制类型转换"></a>强制类型转换</h2><p>强制类型转换是通过定义类型转换运算来实现的。一般形式为：</p>
+<p><strong>(数据类型)(表达式)</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> a = <span class="number">6.777</span>;</span><br><span class="line"><span class="keyword">int</span> b = (<span class="keyword">int</span>)a;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%f\n"</span>, a); <span class="comment">// 6.777000</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d\n"</span>, b); <span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
+<p>使用强制类型转换应注意以下问题：</p>
+<ul>
+<li>数据类型和表达式都必须加括号，如 (int)(x/2+y)</li>
+<li><strong>转换后不会改变原数据的类型及变量值</strong>，只在本次运算中临时性转换</li>
+<li>强制转换后的运算结果<strong>不遵循四舍五入原则</strong></li>
+</ul>
+<h1 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h1><h2 id="算数运算符"><a href="#算数运算符" class="headerlink" title="算数运算符"></a>算数运算符</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">运算符号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">加法</td>
+<td style="text-align:center">+</td>
+</tr>
+<tr>
+<td style="text-align:center">减法</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">乘法</td>
+<td style="text-align:center">*</td>
+</tr>
+<tr>
+<td style="text-align:center">除法</td>
+<td style="text-align:center">/</td>
+</tr>
+<tr>
+<td style="text-align:center">求余（模运算符）</td>
+<td style="text-align:center">%</td>
+</tr>
+<tr>
+<td style="text-align:center">自增</td>
+<td style="text-align:center">++</td>
+</tr>
+<tr>
+<td style="text-align:center">自减</td>
+<td style="text-align:center">--</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p><strong>除法</strong>运算中，如果相除的<strong>两个数都是整数</strong>的话，则<strong>结果也为整数</strong>，小数部分省略。两数中<strong>有一个为小数，结果则为小数</strong>。</p>
+</li>
+<li><p><strong>求余</strong>运算，<strong>只适合用两个整数</strong>进行求余运算。运算后的符号<strong>取决于被模数的符号</strong>，如 (-10)%3 = -1，而 10%(-3) = 1.</p>
+</li>
+</ul>
+<h2 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h2><p>C语言中的赋值运算符分为<strong>简单赋值运算符和复合赋值运算符</strong>。</p>
+<p>简单赋值运算符：”=”</p>
+<p>复合赋值运算符就是在简单赋值符 “=” 之前加上其他运算符构成，例如：+=、-=、*=、/=、%=</p>
+<h2 id="关系运算符"><a href="#关系运算符" class="headerlink" title="关系运算符"></a>关系运算符</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">符号</th>
+<th style="text-align:center">意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">></td>
+<td style="text-align:center">大于</td>
+</tr>
+<tr>
+<td style="text-align:center">>=</td>
+<td style="text-align:center">大于等于</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;</td>
+<td style="text-align:center">小于</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;=</td>
+<td style="text-align:center">小于等于</td>
+</tr>
+<tr>
+<td style="text-align:center">==</td>
+<td style="text-align:center">等于</td>
+</tr>
+<tr>
+<td style="text-align:center">!=</td>
+<td style="text-align:center">不等于</td>
+</tr>
+</tbody>
+</table>
+<p>关系表达式的值是“真”和“假”，在C程序用<strong>整数 1 和 0 表示</strong>。</p>
+<h2 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">符号</th>
+<th style="text-align:center">意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">&amp;&amp;</td>
+<td style="text-align:center">逻辑与</td>
+</tr>
+<tr>
+<td style="text-align:center">&#124;&#124;</td>
+<td style="text-align:center">逻辑或</td>
+</tr>
+<tr>
+<td style="text-align:center">!</td>
+<td style="text-align:center">逻辑非</td>
+</tr>
+</tbody>
+</table>
+<h2 id="三目运算符"><a href="#三目运算符" class="headerlink" title="三目运算符"></a>三目运算符</h2><p>格式：</p>
+<p><strong>表达式1 ? 表达式2 : 表达式3;</strong></p>
+<h2 id="运算符优先级"><a href="#运算符优先级" class="headerlink" title="运算符优先级"></a>运算符优先级</h2><p><img src="http://ovqy85q1k.bkt.clouddn.com/youxianji.jpg" alt="youxianji"></p>
+<p>优先级别为 1 的最高，级别为 10 的最低。</p>
+<h1 id="结构语句"><a href="#结构语句" class="headerlink" title="结构语句"></a>结构语句</h1><h2 id="if-条件语句"><a href="#if-条件语句" class="headerlink" title="if 条件语句"></a>if 条件语句</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(表达式<span class="number">1</span>)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="comment">// 执行代码块1;</span></span><br><span class="line">&#125;</span><br><span class="line">...</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(表达式m)</span><br><span class="line">&#123;</span><br><span class="line">  执行代码块m;</span><br><span class="line">&#125;</span><br><span class="line">...</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">  执行代码块n;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="while-循环"><a href="#while-循环" class="headerlink" title="while 循环"></a>while 循环</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(表达式)</span><br><span class="line">&#123;</span><br><span class="line">  执行代码块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="do-while-循环"><a href="#do-while-循环" class="headerlink" title="do-while 循环"></a>do-while 循环</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">do</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="comment">// 执行代码块</span></span><br><span class="line">&#125; <span class="keyword">while</span>(表达式);</span><br></pre></td></tr></table></figure>
+<h2 id="for-循环"><a href="#for-循环" class="headerlink" title="for 循环"></a>for 循环</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(表达式<span class="number">1</span>; 表达式<span class="number">2</span>; 表达式<span class="number">3</span>)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="comment">// 执行代码块</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意：</p>
+<ul>
+<li>for 循环中的 表达式1、2、3 均可以省略，但<strong>分号不能缺省</strong></li>
+<li>表达式1和表达式3可以是多个表达式，以<strong>逗号分隔</strong></li>
+<li>表达式2一般是关系表达式或逻辑表达式，但也可以是数值表达式或字符表达式，只要其<strong>值非零</strong>，就执行循环体</li>
+<li>各<strong>表达式中的变量一定要在 for 循环之前定义（与其他语言不同）</strong></li>
+</ul>
+<h2 id="三种循环比较"><a href="#三种循环比较" class="headerlink" title="三种循环比较"></a>三种循环比较</h2><ul>
+<li>在知道循环次数的情况下，更适合使用 for 循环</li>
+<li>不知道循环次数的情况下，使用 while 或 do-while 循环</li>
+</ul>
+<h2 id="break-语句"><a href="#break-语句" class="headerlink" title="break 语句"></a>break 语句</h2><p>break 语句可以中断循环</p>
+<ul>
+<li>在没有循环结构的情况下，break <strong>不能用在单独的 if-else 语句中</strong></li>
+<li>在多层循环中，一个 break 语句<strong>只跳出当前循环</strong></li>
+</ul>
+<h2 id="continue-语句"><a href="#continue-语句" class="headerlink" title="continue 语句"></a>continue 语句</h2><p>continue 语句结束本次循环开始执行下一次循环</p>
+<h2 id="switch-语句"><a href="#switch-语句" class="headerlink" title="switch 语句"></a>switch 语句</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span>(表达式)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">case</span> 常量表达式<span class="number">1</span>:</span><br><span class="line">    执行代码块<span class="number">1</span></span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  ...</span><br><span class="line">  <span class="keyword">case</span> 常量表达式n:</span><br><span class="line">    执行代码块n</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  ...</span><br><span class="line">  <span class="keyword">default</span>:</span><br><span class="line">    执行代码块n+<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意：</p>
+<ul>
+<li>case 子句后如果没有 break，会一直往后执行一直到遇到 break，才跳出 switch 语句</li>
+<li>switch 后面的表达式语句只能是<strong>整型或者字符类型</strong></li>
+<li>在 case 后，允许有多个语句，可以不用 {} 括起来</li>
+</ul>
+<h2 id="goto-语句"><a href="#goto-语句" class="headerlink" title="goto 语句"></a>goto 语句</h2><p>使用格式：</p>
+<p><strong>goto 语句标号;</strong></p>
+<p>其中语句标号是一个标识符，该标识符一般用英文大写并遵守标识符命名规则，这个标识符加上一个“:”一起出现在函数内某处，执行 goto 语句后，程序将跳转到该标号处并执行其后的语句。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line">  <span class="comment">// LOOP就是一个有效的标识符</span></span><br><span class="line">  LOOP:<span class="keyword">if</span>(i&lt;=<span class="number">10</span>)</span><br><span class="line">  &#123;</span><br><span class="line">    sum += i;</span><br><span class="line">    i++;</span><br><span class="line">    <span class="keyword">goto</span> LOOP; <span class="comment">// 跳转到LOOP所在位置继续执行</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"sum=%d\n"</span>, sum);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><p>C语言提供了大量的库函数，比如stdio.h提供输出函数。</p>
+<h2 id="自定义函数"><a href="#自定义函数" class="headerlink" title="自定义函数"></a>自定义函数</h2><p><img src="http://ovqy85q1k.bkt.clouddn.com/defineFun.jpg" alt="defineFun"></p>
+<ul>
+<li>[] 包含的内容可以省略，数据类型省略，默认是 <strong>int</strong> 类型函数；</li>
+<li>自定义函数尽量放在 main 函数之前，如果放在main函数后面，需要在main函数之前先声明，声明格式为：<strong>[数据类型说明] 函数名称 ([参数])</strong></li>
+</ul>
+<h2 id="函数调用"><a href="#函数调用" class="headerlink" title="函数调用"></a>函数调用</h2><p>调用形式：</p>
+<p><strong>函数名([参数]);</strong></p>
+<h2 id="有参函数"><a href="#有参函数" class="headerlink" title="有参函数"></a>有参函数</h2><p>[数据类型说明] 函数名称(<strong>参数类型 参数名</strong>, …)<br>{<br>　　执行代码块;<br>　　return 表达式;<br>}</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">learn</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"小明在慕课网上已经参与学习了%d门课程\n"</span>, n);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="形参与实参"><a href="#形参与实参" class="headerlink" title="形参与实参"></a>形参与实参</h2><p>形参是定义函数和函数体时使用的参数，实参是在调用时传递给该函数的参数。</p>
+<ul>
+<li>形参只有在<strong>被调用时才分配内存单元</strong>，在调用结束时，即刻释放所分配的内存单元。因此，形参只有在函数内部有效。</li>
+<li>实参可以是常量、变量、表达式、函数等，无论实参是何种类型的量，在进行函数调用时，它们必须具有明确的值。</li>
+<li>在参数传递时，实参和形参在<strong>数量上、类型上、顺序上应严格一致</strong>，否则会发生类型不匹配的错误。</li>
+</ul>
+<h2 id="函数的返回值"><a href="#函数的返回值" class="headerlink" title="函数的返回值"></a>函数的返回值</h2><p><strong>return 表达式</strong> 或者 <strong>return (表达式)</strong></p>
+<blockquote>
+<p>如果函数返回值的类型与函数定义中函数的类型不一致，则以函数返回类型为准，自动进行类型转换</p>
+</blockquote>
+<h2 id="局部变量"><a href="#局部变量" class="headerlink" title="局部变量"></a>局部变量</h2><p>在<strong>函数内部、复合语句内部</strong>定义的变量</p>
+<h2 id="变量存储类别"><a href="#变量存储类别" class="headerlink" title="变量存储类别"></a>变量存储类别</h2><p>C语言根据变量的生存周期来划分，可以分为<strong>静态存储方式</strong>和<strong>动态存储方式</strong>。</p>
+<ul>
+<li><p>静态存储方式：是指在程序运行期间分配固定的存储空间的方式。静态存储区中存放了<strong>在整个程序执行过程中都存在的变量，如全局变量</strong>。</p>
+</li>
+<li><p>动态存储方式：是指在程序运行期间根据需要进行动态的分配存储空间的方式。<strong>动态存储区中存放的变量是根据程序运行的需要而建立和释放的</strong>，通常包括：函数形参、自动变量、函数调用时的现场保护和返回地址等。</p>
+</li>
+</ul>
+<p>C语言中存储类别又分为四类：<strong>自动（auto）、静态（static）、寄存器的（register）和外部的（extern）</strong>。</p>
+<ul>
+<li><p>用关键字 auto 定义的变量为自动变量，auto 可以省略，auto不写则隐含定义为“自动存储类别”，属于动态存储方式。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fn</span><span class="params">(<span class="keyword">int</span> a)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">auto</span> <span class="keyword">int</span> b, c;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>用 static 修饰的为静态变量，如果定义在函数内部，称之为静态局部变量；如果定义在函数外部，称之为静态外部变量。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fn</span><span class="params">(<span class="keyword">int</span> a)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">int</span> x = <span class="number">0</span>;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>静态局部变量属于静态存储类别，在静态存储区内分配存储单元，在<strong>整个程序运行期间都不释放</strong>；静态局部变量<strong>在编译时赋初值，即只赋初值一次</strong>；如果在定义局部变量时不赋初值的话，则对静态局部变量来说，编译时自动赋初值0（对数值型变量）或空字符（对字符变量）。</p>
+</blockquote>
+<ul>
+<li>为了提高效率，C语言允许将<strong>局部变量</strong>的值放在 CPU 中的寄存器中，这种变量叫“寄存器变量”，用关键字 register 作声明。<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fn</span><span class="params">(<span class="keyword">int</span> a)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">register</span> <span class="keyword">int</span> i;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>只有<strong>局部自动变量和形参</strong>可以作为寄存器变量；一个计算机系统中的寄存器数目有限，不能定义任意多个寄存器变量；<strong>局部静态变量不能定义为寄存器变量</strong>。</p>
+</blockquote>
+<ul>
+<li>用 extern 声明的变量是外部变量，外部变量的意义是某函数可以调用在该函数之后定义的变量。<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">extern</span> <span class="keyword">int</span> x; <span class="comment">// 这里声明使用的是外部全局变量</span></span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"extern x=%d\n"</span>, x);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> x = <span class="number">100</span>;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="内部函数与外部函数"><a href="#内部函数与外部函数" class="headerlink" title="内部函数与外部函数"></a>内部函数与外部函数</h2><p>在C语言中不能被其他源文件调用的函数称为内部函数，由 static 关键字来定义，又被称为静态函数。形式为：</p>
+<p><strong>static [数据类型] 函数名()</strong></p>
+<p>在C语言中能被其他源文件调用的函数称为外部函数，由 extern 关键字来定义。形式为：</p>
+<p><strong>extern [数据类型] 函数名()</strong></p>
+<p>在没有指定函数的作用范围时，<strong>默认为外部函数</strong>，因此 extern 可以省略。</p>
+<blockquote>
+<p>引入源文件<code>#include &quot;test.c&quot;</code></p>
+</blockquote>
+
+      
+    </div>
+
+	<div>
+	  
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+	  
+	</div>
+	
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C语言/" rel="tag"><i class="fa fa-tag"></i> C语言</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/IOS下input的placeholder不垂直居中的问题/" rel="next" title="IOS下input的placeholder不垂直居中的问题">
+                <i class="fa fa-chevron-left"></i> IOS下input的placeholder不垂直居中的问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/generator-学习笔记/" rel="prev" title="generator 学习笔记">
+                generator 学习笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+ <!-- <a class="jiathis_button_tqq"></a> -->
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+ <!-- <a class="jiathis_button_renren"></a> -->
+  <a class="jiathis_button_qzone"></a>
+ <!-- <a class="jiathis_button_kaixin001"></a> -->
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="孟玉晶">
+          <p class="site-author-name" itemprop="name">孟玉晶</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">50</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">91</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/huajianduzhuo" target="_blank" title="github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://juejin.im/user/5921a68ea0bb9f005f57f51b" target="_blank" title="掘金">
+                  
+                    <i class="fa fa-fw fa-angle-double-down"></i>
+                  
+                  掘金
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://segmentfault.com/u/mengyj" target="_blank" title="segmentfault">
+                  
+                    <i class="fa fa-fw fa-crosshairs"></i>
+                  
+                  segmentfault
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              推荐阅读
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://developer.mozilla.org/zh-CN/" title="Mozilla中文社区" target="_blank">Mozilla中文社区</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.uisdc.com/" title="优设" target="_blank">优设</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.alloyteam.com/" title="腾讯前端" target="_blank">腾讯前端</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://ife.baidu.com/" title="百度前端技术学院" target="_blank">百度前端技术学院</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://taobaofed.org/" title="淘宝前端" target="_blank">淘宝前端</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.zhangxinxu.com/" title="张鑫旭" target="_blank">张鑫旭</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.ruanyifeng.com/blog/" title="阮一峰" target="_blank">阮一峰</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.daqianduan.com/" title="大前端" target="_blank">大前端</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#认识C程序"><span class="nav-number">1.</span> <span class="nav-text">认识C程序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#主函数"><span class="nav-number">1.1.</span> <span class="nav-text">主函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编写规范"><span class="nav-number">1.2.</span> <span class="nav-text">编写规范</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注释"><span class="nav-number">1.3.</span> <span class="nav-text">注释</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基本数据类型"><span class="nav-number">2.</span> <span class="nav-text">基本数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#标识符"><span class="nav-number">2.1.</span> <span class="nav-text">标识符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量及赋值"><span class="nav-number">2.2.</span> <span class="nav-text">变量及赋值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本数据类型-1"><span class="nav-number">2.3.</span> <span class="nav-text">基本数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#格式化输出语句"><span class="nav-number">2.4.</span> <span class="nav-text">格式化输出语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常量"><span class="nav-number">2.5.</span> <span class="nav-text">常量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自动类型转换"><span class="nav-number">2.6.</span> <span class="nav-text">自动类型转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#强制类型转换"><span class="nav-number">2.7.</span> <span class="nav-text">强制类型转换</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#运算符"><span class="nav-number">3.</span> <span class="nav-text">运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#算数运算符"><span class="nav-number">3.1.</span> <span class="nav-text">算数运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#赋值运算符"><span class="nav-number">3.2.</span> <span class="nav-text">赋值运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关系运算符"><span class="nav-number">3.3.</span> <span class="nav-text">关系运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#逻辑运算符"><span class="nav-number">3.4.</span> <span class="nav-text">逻辑运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三目运算符"><span class="nav-number">3.5.</span> <span class="nav-text">三目运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运算符优先级"><span class="nav-number">3.6.</span> <span class="nav-text">运算符优先级</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结构语句"><span class="nav-number">4.</span> <span class="nav-text">结构语句</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#if-条件语句"><span class="nav-number">4.1.</span> <span class="nav-text">if 条件语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#while-循环"><span class="nav-number">4.2.</span> <span class="nav-text">while 循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#do-while-循环"><span class="nav-number">4.3.</span> <span class="nav-text">do-while 循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for-循环"><span class="nav-number">4.4.</span> <span class="nav-text">for 循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三种循环比较"><span class="nav-number">4.5.</span> <span class="nav-text">三种循环比较</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#break-语句"><span class="nav-number">4.6.</span> <span class="nav-text">break 语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#continue-语句"><span class="nav-number">4.7.</span> <span class="nav-text">continue 语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#switch-语句"><span class="nav-number">4.8.</span> <span class="nav-text">switch 语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#goto-语句"><span class="nav-number">4.9.</span> <span class="nav-text">goto 语句</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#函数"><span class="nav-number">5.</span> <span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义函数"><span class="nav-number">5.1.</span> <span class="nav-text">自定义函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数调用"><span class="nav-number">5.2.</span> <span class="nav-text">函数调用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有参函数"><span class="nav-number">5.3.</span> <span class="nav-text">有参函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#形参与实参"><span class="nav-number">5.4.</span> <span class="nav-text">形参与实参</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的返回值"><span class="nav-number">5.5.</span> <span class="nav-text">函数的返回值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#局部变量"><span class="nav-number">5.6.</span> <span class="nav-text">局部变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量存储类别"><span class="nav-number">5.7.</span> <span class="nav-text">变量存储类别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内部函数与外部函数"><span class="nav-number">5.8.</span> <span class="nav-text">内部函数与外部函数</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!-- <div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_page_pv">
+  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+</span>
+</div> -->
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">孟玉晶</span>
+</div>
+
+<!-- 
+ <div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div> 
+ -->
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"> 本站访问数</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"> 本站总访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/texiao.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (search_path.endsWith("json")) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.1"></script>
+
+
+  
+
+  	<a href="https://github.com/huajianduzhuo"><img style="position: absolute; top: 0; left: 0; border: 0; z-index: 100;" src="https://camo.githubusercontent.com/c6286ade715e9bea433b4705870de482a654f78a/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f77686974655f6666666666662e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_white_ffffff.png"></a>
+
+</body>
+</html>

@@ -1,0 +1,1385 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next mist" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="移动端事件,视口,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="勤，以随心" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.1">
+
+
+
+
+
+
+<meta name="description" content="编写移动端页面与编写电脑版网页的方式有一些不同，本文将移动端页面的内容进行了总结，主要包括三个视口、物理像素与像素比、移动端事件等内容。 学习移动端过程中做的两个项目：音悦台 和 懒加载相册GitHub地址：https://github.com/huajianduzhuo/mobile-project。">
+<meta name="keywords" content="移动端事件,视口">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动端内容简介">
+<meta property="og:url" content="http://mengyujing.com/移动端内容简介/index.html">
+<meta property="og:site_name" content="勤，以随心">
+<meta property="og:description" content="编写移动端页面与编写电脑版网页的方式有一些不同，本文将移动端页面的内容进行了总结，主要包括三个视口、物理像素与像素比、移动端事件等内容。 学习移动端过程中做的两个项目：音悦台 和 懒加载相册GitHub地址：https://github.com/huajianduzhuo/mobile-project。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-10-24T11:41:37.170Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="移动端内容简介">
+<meta name="twitter:description" content="编写移动端页面与编写电脑版网页的方式有一些不同，本文将移动端页面的内容进行了总结，主要包括三个视口、物理像素与像素比、移动端事件等内容。 学习移动端过程中做的两个项目：音悦台 和 懒加载相册GitHub地址：https://github.com/huajianduzhuo/mobile-project。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: false,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://mengyujing.com/移动端内容简介/">
+
+
+
+
+
+  <title>移动端内容简介 | 勤，以随心</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">勤，以随心</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-games">
+          <a href="/games" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-gamepad"></i> <br>
+            
+            游戏
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://mengyujing.com/移动端内容简介/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="孟玉晶">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="勤，以随心">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">移动端内容简介</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-07T21:02:11+08:00">
+                2017-07-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/移动端/" itemprop="url" rel="index">
+                    <span itemprop="name">移动端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+		  
+
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"> 阅读</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  3,080
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  11
+                </span>
+              
+            </div>
+           
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>编写移动端页面与编写电脑版网页的方式有一些不同，本文将移动端页面的内容进行了总结，主要包括三个视口、物理像素与像素比、移动端事件等内容。</p>
+<p>学习移动端过程中做的两个项目：音悦台 和 懒加载相册<br>GitHub地址：<a href="https://github.com/huajianduzhuo/mobile-project" target="_blank" rel="noopener">https://github.com/huajianduzhuo/mobile-project</a>。</p>
+<a id="more"></a>
+<h1 id="像素"><a href="#像素" class="headerlink" title="像素"></a>像素</h1><h2 id="屏幕相关概念"><a href="#屏幕相关概念" class="headerlink" title="屏幕相关概念"></a>屏幕相关概念</h2><p><strong>屏幕尺寸</strong></p>
+<p>指屏幕的对角线的长度，单位是英寸，1英寸=2.54厘米。</p>
+<blockquote>
+<p>常见的屏幕尺寸有2.4、2.8、3.5、3.7、4.2、5.0、5.5、6.0等。</p>
+</blockquote>
+<p><strong>屏幕分辨率</strong></p>
+<p>指在横纵向上的像素点数，单位是px，1px=1个像素点。<br>一般以 纵向像素 * 横向像素 来表示一个手机的分辨率。如 iphone6 的分辨率是 750*1334。（这里的1像素指的是物理设备的1个像素点）</p>
+<p><strong>屏幕像素密度/像素密度/屏幕密度</strong></p>
+<p>屏幕上每英寸可以显示的像素点的数量，单位是ppi，即“pixels per inch”的缩写。</p>
+<blockquote>
+<p>屏幕像素密度与屏幕尺寸和屏幕分辨率有关</p>
+</blockquote>
+<h2 id="像素-1"><a href="#像素-1" class="headerlink" title="像素"></a>像素</h2><p>移动端中的像素具有几种不同的概念，如物理像素、CSS像素、设备独立像素。</p>
+<h3 id="物理像素-设备像素"><a href="#物理像素-设备像素" class="headerlink" title="物理像素/设备像素"></a>物理像素/设备像素</h3><p>　　手机分辨率（n x m）指的是手机横纵向上的像素点数，一个点（小方格）为一个物理像素，它是屏幕能显示的最小粒度。<br>　　设备像素也被称为物理像素，他是显示设备中一个最微小的物理部件。每个像素可以根据操作系统设置自己的颜色和亮度。<br>　　任何设备的物理像素的数量都是固定的。</p>
+<h3 id="CSS像素"><a href="#CSS像素" class="headerlink" title="CSS像素"></a>CSS像素</h3><p>　　CSS像素是一个抽象的单位，主要使用在浏览器上，用来精确的度量（确定）Web页面上的内容。它是为web开发者创造的，在css或者javascript中使用的一个抽象的层。<br>　　一般情况下，CSS像素被称为与设备无关的像素（device-independent像素），简称为“DIPs”。<br>　　在一个标准的显示密度下(普通屏)，一个CSS像素对应着一个设备像素。</p>
+<blockquote>
+<p>作为开发者，我们使用的每一个css和javascript定义的像素本质上代表的都是css像素，我们在开发过程中，并不在意一个css像素到底跨越了多少个设备像素。我们将这个依赖于屏幕特性和用户缩放程度的复杂计算交给了浏览器。</p>
+</blockquote>
+<h3 id="css像素与物理像素的关系"><a href="#css像素与物理像素的关系" class="headerlink" title="css像素与物理像素的关系"></a>css像素与物理像素的关系</h3><p>　　定义一个 width 为 200px 的元素，它占据了200个 css像素，但200个 css像素占据多少个物理像素取决于屏幕的特性（是否是高密度,即像素比）和用户的缩放行为。<br>　　在 iPhone6 的视网膜屏幕上，视网膜的像素密度是普通屏幕的两倍，这个元素就跨越了400个物理像素。如果用户放大，它将跨越更多的物理像素。</p>
+<h3 id="设备独立像素"><a href="#设备独立像素" class="headerlink" title="设备独立像素"></a>设备独立像素</h3><p>　　设备独立像素(也叫密度无关像素)，可以认为是计算机坐标系统中得一个点，这个点代表一个可以由程序使用的虚拟像素(比如: css像素)，然后由相关系统转换为物理像素。</p>
+<h3 id="位图像素"><a href="#位图像素" class="headerlink" title="位图像素"></a>位图像素</h3><p>　　一个位图的像素是栅格图像(如：png, jpg, gif等)最小的数据单元。1个位图像素对应于1个物理像素，图片才能得到完美清晰的展示。</p>
+<h2 id="像素比"><a href="#像素比" class="headerlink" title="像素比"></a>像素比</h2><p>设备物理像素和设备独立像素的比例。</p>
+<pre><code>window.devicePixelRatio = 物理像素 / 设备独立像素
+</code></pre><h1 id="视口"><a href="#视口" class="headerlink" title="视口"></a>视口</h1><h2 id="布局视口"><a href="#布局视口" class="headerlink" title="布局视口"></a>布局视口</h2><p>布局视口（layout viewport）是指用于 CSS 布局的一块区域。</p>
+<blockquote>
+<p>在 PC 端，横向布局默认是根据初始包含块决定，如设置一个块级元素的宽度为 20%，则该元素的宽度为初始包含块的宽度的 20%。在移动端，由布局视口代替初始包含块的作用。</p>
+</blockquote>
+<p>　　布局视口的概念，在极大程度上帮助了桌面网站到移动设备上的转移。大部分手机浏览器的默认布局视口大小为 980px，默认情况下，布局视口占满手机浏览器屏幕，除非页面中有块级元素的宽度大于这个值，则该元素的宽度会占满屏幕，而布局视口的宽度则会小于屏幕的宽度（此处所说的宽度均指css像素宽度，物理像素由手机品牌决定，不会改变）。</p>
+<p>　　可以通过 document.documentElement.clientWidth 来获取布局视口的大小。</p>
+<h2 id="视觉视口"><a href="#视觉视口" class="headerlink" title="视觉视口"></a>视觉视口</h2><p>　　视觉视口（visual viewport）与设备屏幕一样宽，并且它的 css 像素的数量会随用户的缩放而改变。<br>　　visual viewport的宽度可以通过 window.innerWidth 来获取，但在Android 2, Oprea mini 和 UC 8中无法正确获取。</p>
+<blockquote>
+<p>布局视口限制了页面css布局,视觉视口会决定用户能看到的区域。</p>
+</blockquote>
+<h2 id="理想视口"><a href="#理想视口" class="headerlink" title="理想视口"></a>理想视口</h2><p>　　大多数移动设备浏览器的布局视口的默认宽度为 980px，且默认情况下，这 980px 像素的大小会占满整个屏幕，这样会导致 CSS 像素和物理像素的大小差异过大，将PC端页面转移到移动端后，页面元素显示过小，需要用户手动缩放来调节，而这是我们不想看到的。<br>　　为了实现用户进入页面时，不需要缩放屏幕，就可以正常浏览页面，我们需要为移动设备专门开发网站。<br>　　由于布局视口的默认宽度主要是为了能够容纳PC端的网页设置的，对于专门为移动设备开发的网页，这个宽度并不是一个理想的宽度，所以一些浏览器厂商引入了理想视口。<br>　　<strong>理想视口是指页面的布局视口宽度与设备独立像素的值相等。</strong></p>
+<p>实现理想视口的代码：</p>
+<pre><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot; /&gt;
+</code></pre><h1 id="缩放"><a href="#缩放" class="headerlink" title="缩放"></a>缩放</h1><p>　　缩放是指放大或缩小页面的行为。本质上讲，缩放是放大或缩小 1css 像素的大小的过程，当 css 像素与物理像素的大小比例改变时，用户看到的元素大小也会改变，但是元素css布局大小的值没变。<br>　　用户进行缩放操作时，布局视口的宽度不会改变，但是由于 css 像素的大小发生改变，会导致视觉视口所包含的 css 像素个数改变，所以缩放会改变视觉视口的尺寸。</p>
+<h1 id="meta标签"><a href="#meta标签" class="headerlink" title="meta标签"></a>meta标签</h1><pre><code>&lt;meta name=&quot;viewport&quot; content=&quot;&quot; /&gt;
+</code></pre><p>移动端页面需要添加 name 属性为 viewport 的标签，该标签 content 属性内容如下</p>
+<h2 id="content属性"><a href="#content属性" class="headerlink" title="content属性"></a>content属性</h2><p>content 属性的值可以包含如下内容：</p>
+<ul>
+<li>width [pixel_value | device-width] width<br>  – 直接去设置具体数值大部分的安卓手机是不支持的 但是IOS支持</li>
+<li>initial-scale 初始缩放比例</li>
+<li>user-scalable 是否允许缩放 （no||yes）,默认允许</li>
+<li>minimum-scale 允许缩放的最小比例</li>
+<li>maximum-scale 允许缩放的最大比例 </li>
+<li>target-densitydpi<br>  – dpi_value 70–400 //每英寸像素点的个数<br>  – device-dpi 设备默认像素密度2<br>  – high-dpi 高像素密度<br>  – medium-dpi 中等像素密度<br>  – low-dpi 低像素密度<br>  – webkit内核不再支持了</li>
+<li>height</li>
+</ul>
+<p>示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,height=device-height,user-scalable=no,</span><br><span class="line">	initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,target-densitydpi=device-dpi&quot; /&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="width"><a href="#width" class="headerlink" title="width"></a>width</h3><p>width 用来设置布局视口的大小。上面介绍过的理想视口，设置 width=device-width，会使布局视口的大小变成理想视口的大小（即独立设备像素代表的值）。</p>
+<p>旋转（横竖屏切换）：<br>当用户旋转设备时，布局视口的宽度通常会发生改变。因为横竖屏时的理想视口尺寸不一样。但ios的safari很例外，基于性能的考虑它的布局视口不会做出改变。</p>
+<h3 id="initial-scale"><a href="#initial-scale" class="headerlink" title="initial-scale"></a>initial-scale</h3><p>设置缩放，缩放根据理想视口的大小为基础来计算。设置 inital-scale=1 其实等同于只设置 width=device-width。</p>
+<p>通过 initial-scale 设置的缩放，与用户的缩放行为不同。用户的缩放行为不会改变布局视口的大小，只改变视觉视口的大小。而通过 initial-scale 设置的缩放，会使布局视口的大小跟随着视觉视口一起改变。</p>
+<h3 id="minimum-scale和maximum-scale"><a href="#minimum-scale和maximum-scale" class="headerlink" title="minimum-scale和maximum-scale"></a>minimum-scale和maximum-scale</h3><ul>
+<li>minimum-scale 允许缩放的最小比例</li>
+<li>maximum-scale 允许缩放的最大比例  </li>
+</ul>
+<p>不设置这两个值时，页面默认缩放比例范围为20%-500%，设置最大和最小比例后，页面可缩放比例能够扩大到10%-1000%。</p>
+<p>安卓的 webkit 内核不支持这两个属性，默认缩放范围为25%-400%。<br>ie内核同样不支持。</p>
+<h2 id="完美视口"><a href="#完美视口" class="headerlink" title="完美视口"></a>完美视口</h2><pre><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1.0,user-scalable=no&quot; /&gt;
+</code></pre><p>　　当 meta 标签中只设置 width=device-width 和 initial-scale=1.0 中的一个时，如果页面中存在过大的元素，有些浏览器会扩展布局视口的宽度来容纳这个元素。但是如果这两个属性都设置了，大部分浏览器则不会改变布局视口的大小。</p>
+<blockquote>
+<p>布局视口在 width 和 initial-scale 产生分歧时，会选择两个中布局视口较大的那一个。</p>
+</blockquote>
+<h1 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h1><h2 id="基础事件"><a href="#基础事件" class="headerlink" title="基础事件"></a>基础事件</h2><ul>
+<li><strong>touchstart</strong><br>  手指触摸。相当于PC端页面的 mousedown 事件</li>
+<li><strong>touchmove</strong><br>  手指移动。相当于PC端页面的 mousemove 事件</li>
+<li><strong>touchend</strong><br>  手指移动。相当于PC端页面的 mouseup 事件</li>
+</ul>
+<h2 id="事件目标元素"><a href="#事件目标元素" class="headerlink" title="事件目标元素"></a>事件目标元素</h2><p>　　在PC端页面中，事件处理函数的第一个参数 event 就是事件对象，可以直接通过 event 对象获取事件的一些信息。在移动端页面中，同样可以使用 event 对象，但是由于在移动端，可能不止有一个手指事件，所以仅仅通过  event 对象，无法获取所有的事件信息。<br>　　event 对象提供了三个数组类型的属性，用于存储移动端的事件对象。</p>
+<ul>
+<li><strong>changedTouches</strong><br>  目标元素上触发了目标事件的手指事件对象列表</li>
+<li><strong>targetTouches</strong><br>  目标元素上的所有手指事件对象列表</li>
+<li><strong>touches</strong><br>  手机屏幕上的手指事件对象列表</li>
+</ul>
+<h1 id="多指事件"><a href="#多指事件" class="headerlink" title="多指事件"></a>多指事件</h1><h2 id="多指事件-1"><a href="#多指事件-1" class="headerlink" title="多指事件"></a>多指事件</h2><ul>
+<li>gesturestart<br>  手指触碰当前元素，屏幕上有两个或者两个以上的手指<br>  注意：我们说的多指，指定是两个手指</li>
+<li>gesturechange<br>  手指触碰当前元素，屏幕上有两个或者两个以上的手指位置在发生移动</li>
+<li>gestureend<br>  在 gesturestart 后, 屏幕上只剩下两根以下（不包括两根）的手指</li>
+</ul>
+<blockquote>
+<p>以上三个事件只有iPhone 6 以上才能用。</p>
+</blockquote>
+<h2 id="旋转（rotation）"><a href="#旋转（rotation）" class="headerlink" title="旋转（rotation）"></a>旋转（rotation）</h2><p>可以通过 event.rotation 属性获取多指事件时，目标元素上的手指旋转角度。一般只考虑0-90°。</p>
+<h2 id="缩放（scale）"><a href="#缩放（scale）" class="headerlink" title="缩放（scale）"></a>缩放（scale）</h2><p>可以通过 event.scale 属性获取多指事件时，目标元素上的手指缩放比例。</p>
+<h2 id="原声-JS-模拟多指事件"><a href="#原声-JS-模拟多指事件" class="headerlink" title="原声 JS 模拟多指事件"></a>原声 JS 模拟多指事件</h2><h3 id="模拟-gesturestart"><a href="#模拟-gesturestart" class="headerlink" title="模拟 gesturestart"></a>模拟 gesturestart</h3><p>手指触碰当前元素，<strong>屏幕上</strong>有两个或两个以上手指</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">box.addEventListener(<span class="string">'touchstart'</span>, <span class="keyword">function</span>(event)&#123;</span><br><span class="line">    var touch = event.touches;</span><br><span class="line">    <span class="keyword">if</span>(touch.length &gt;= 2)&#123;</span><br><span class="line">        // 相应多指事件</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>将上面代码封装成函数</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> gesture(box, callback)&#123;</span><br><span class="line"></span><br><span class="line">    // 判断 gesturestart 的标识</span><br><span class="line">    var flag = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">    box.addEventListener(<span class="string">'touchstart'</span>, <span class="keyword">function</span>(event)&#123;</span><br><span class="line">        var touch = event.touches;</span><br><span class="line">        <span class="keyword">if</span>(touch.length &gt;= 2)&#123;</span><br><span class="line">            flag = <span class="literal">true</span>;</span><br><span class="line">            // 相应多指事件</span><br><span class="line">            <span class="keyword">if</span>(callback &amp;&amp; callback[<span class="string">'start'</span>])&#123;</span><br><span class="line">                callback[<span class="string">'start'</span>]();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="模拟-gesturechange"><a href="#模拟-gesturechange" class="headerlink" title="模拟 gesturechange"></a>模拟 gesturechange</h3><p>手指触碰当前元素，<strong>屏幕上</strong>有两个或两个以上手指位置在发生移动</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">box.addEventListener(<span class="string">'touchmove'</span>, <span class="keyword">function</span>(event)&#123;</span><br><span class="line">    var touch = event.touches;</span><br><span class="line">    <span class="keyword">if</span>(touch.length &gt;= 2)&#123;</span><br><span class="line">        // 相应多指事件</span><br><span class="line">        <span class="keyword">if</span>(callback &amp;&amp; callback[<span class="string">'change'</span>])&#123;</span><br><span class="line">            callback[<span class="string">'change'</span>]();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="模拟-gestureend"><a href="#模拟-gestureend" class="headerlink" title="模拟 gestureend"></a>模拟 gestureend</h3><p>在 gesturestart 后，屏幕上只剩下两根以下（不包括两根）的手指</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">    box.addEventListener(<span class="string">'touchend'</span>, <span class="keyword">function</span>(event)&#123;</span><br><span class="line">        var touch = event.touches;</span><br><span class="line">        <span class="keyword">if</span>(touch.length &lt; 2)&#123;</span><br><span class="line">            <span class="keyword">if</span>(flag)&#123;</span><br><span class="line">                // 相应多指事件</span><br><span class="line">                <span class="keyword">if</span>(callback &amp;&amp; callback[<span class="string">'end'</span>])&#123;</span><br><span class="line">                    callback[<span class="string">'end'</span>]();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            // 重置标识</span><br><span class="line">            flag = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">&#125; // 对应 gesture 函数开始</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+	<div>
+	  
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+	  
+	</div>
+	
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/移动端事件/" rel="tag"><i class="fa fa-tag"></i> 移动端事件</a>
+          
+            <a href="/tags/视口/" rel="tag"><i class="fa fa-tag"></i> 视口</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/CSS3自动旋转魔方/" rel="next" title="CSS3自动旋转魔方">
+                <i class="fa fa-chevron-left"></i> CSS3自动旋转魔方
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/连续赋值与成员访问运算符优先级/" rel="prev" title="连续赋值与成员访问运算符优先级">
+                连续赋值与成员访问运算符优先级 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+ <!-- <a class="jiathis_button_tqq"></a> -->
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+ <!-- <a class="jiathis_button_renren"></a> -->
+  <a class="jiathis_button_qzone"></a>
+ <!-- <a class="jiathis_button_kaixin001"></a> -->
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="孟玉晶">
+          <p class="site-author-name" itemprop="name">孟玉晶</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">50</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">91</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/huajianduzhuo" target="_blank" title="github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://juejin.im/user/5921a68ea0bb9f005f57f51b" target="_blank" title="掘金">
+                  
+                    <i class="fa fa-fw fa-angle-double-down"></i>
+                  
+                  掘金
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://segmentfault.com/u/mengyj" target="_blank" title="segmentfault">
+                  
+                    <i class="fa fa-fw fa-crosshairs"></i>
+                  
+                  segmentfault
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              推荐阅读
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://developer.mozilla.org/zh-CN/" title="Mozilla中文社区" target="_blank">Mozilla中文社区</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.uisdc.com/" title="优设" target="_blank">优设</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.alloyteam.com/" title="腾讯前端" target="_blank">腾讯前端</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://ife.baidu.com/" title="百度前端技术学院" target="_blank">百度前端技术学院</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://taobaofed.org/" title="淘宝前端" target="_blank">淘宝前端</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.zhangxinxu.com/" title="张鑫旭" target="_blank">张鑫旭</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.ruanyifeng.com/blog/" title="阮一峰" target="_blank">阮一峰</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.daqianduan.com/" title="大前端" target="_blank">大前端</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#像素"><span class="nav-number">1.</span> <span class="nav-text">像素</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#屏幕相关概念"><span class="nav-number">1.1.</span> <span class="nav-text">屏幕相关概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#像素-1"><span class="nav-number">1.2.</span> <span class="nav-text">像素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#物理像素-设备像素"><span class="nav-number">1.2.1.</span> <span class="nav-text">物理像素/设备像素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS像素"><span class="nav-number">1.2.2.</span> <span class="nav-text">CSS像素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#css像素与物理像素的关系"><span class="nav-number">1.2.3.</span> <span class="nav-text">css像素与物理像素的关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设备独立像素"><span class="nav-number">1.2.4.</span> <span class="nav-text">设备独立像素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#位图像素"><span class="nav-number">1.2.5.</span> <span class="nav-text">位图像素</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#像素比"><span class="nav-number">1.3.</span> <span class="nav-text">像素比</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#视口"><span class="nav-number">2.</span> <span class="nav-text">视口</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#布局视口"><span class="nav-number">2.1.</span> <span class="nav-text">布局视口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#视觉视口"><span class="nav-number">2.2.</span> <span class="nav-text">视觉视口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#理想视口"><span class="nav-number">2.3.</span> <span class="nav-text">理想视口</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#缩放"><span class="nav-number">3.</span> <span class="nav-text">缩放</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#meta标签"><span class="nav-number">4.</span> <span class="nav-text">meta标签</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#content属性"><span class="nav-number">4.1.</span> <span class="nav-text">content属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#width"><span class="nav-number">4.1.1.</span> <span class="nav-text">width</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#initial-scale"><span class="nav-number">4.1.2.</span> <span class="nav-text">initial-scale</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#minimum-scale和maximum-scale"><span class="nav-number">4.1.3.</span> <span class="nav-text">minimum-scale和maximum-scale</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#完美视口"><span class="nav-number">4.2.</span> <span class="nav-text">完美视口</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#事件"><span class="nav-number">5.</span> <span class="nav-text">事件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础事件"><span class="nav-number">5.1.</span> <span class="nav-text">基础事件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件目标元素"><span class="nav-number">5.2.</span> <span class="nav-text">事件目标元素</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多指事件"><span class="nav-number">6.</span> <span class="nav-text">多指事件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#多指事件-1"><span class="nav-number">6.1.</span> <span class="nav-text">多指事件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#旋转（rotation）"><span class="nav-number">6.2.</span> <span class="nav-text">旋转（rotation）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缩放（scale）"><span class="nav-number">6.3.</span> <span class="nav-text">缩放（scale）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原声-JS-模拟多指事件"><span class="nav-number">6.4.</span> <span class="nav-text">原声 JS 模拟多指事件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#模拟-gesturestart"><span class="nav-number">6.4.1.</span> <span class="nav-text">模拟 gesturestart</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模拟-gesturechange"><span class="nav-number">6.4.2.</span> <span class="nav-text">模拟 gesturechange</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模拟-gestureend"><span class="nav-number">6.4.3.</span> <span class="nav-text">模拟 gestureend</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!-- <div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_page_pv">
+  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+</span>
+</div> -->
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">孟玉晶</span>
+</div>
+
+<!-- 
+ <div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div> 
+ -->
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"> 本站访问数</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"> 本站总访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/texiao.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (search_path.endsWith("json")) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.1"></script>
+
+
+  
+
+  	<a href="https://github.com/huajianduzhuo"><img style="position: absolute; top: 0; left: 0; border: 0; z-index: 100;" src="https://camo.githubusercontent.com/c6286ade715e9bea433b4705870de482a654f78a/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f77686974655f6666666666662e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_white_ffffff.png"></a>
+
+</body>
+</html>

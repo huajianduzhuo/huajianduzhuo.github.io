@@ -1,0 +1,1602 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next mist" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="BOM,window对象,navigator,history,location,screen,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="勤，以随心" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.1">
+
+
+
+
+
+
+<meta name="description" content="BOMBOM的全称为 Browser Object Model ，被译为 浏览器对象模型。BOM提供了独立于HTML页面内容，而与浏览器相关的一系列对象。主要被用于管理浏览器窗口及与浏览器窗口之间通信等功能。 BOM是由浏览器所提供的一系列对象，例如 window 对象等。DOM中的document对象实际上是window对象的属性。 Window对象是BOM 结构中的最顶层的对象，其他对象都是以">
+<meta name="keywords" content="BOM,window对象,navigator,history,location,screen">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript之BOM简单介绍">
+<meta property="og:url" content="http://mengyujing.com/javascript之BOM简单介绍/index.html">
+<meta property="og:site_name" content="勤，以随心">
+<meta property="og:description" content="BOMBOM的全称为 Browser Object Model ，被译为 浏览器对象模型。BOM提供了独立于HTML页面内容，而与浏览器相关的一系列对象。主要被用于管理浏览器窗口及与浏览器窗口之间通信等功能。 BOM是由浏览器所提供的一系列对象，例如 window 对象等。DOM中的document对象实际上是window对象的属性。 Window对象是BOM 结构中的最顶层的对象，其他对象都是以">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-10-24T11:41:37.164Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javascript之BOM简单介绍">
+<meta name="twitter:description" content="BOMBOM的全称为 Browser Object Model ，被译为 浏览器对象模型。BOM提供了独立于HTML页面内容，而与浏览器相关的一系列对象。主要被用于管理浏览器窗口及与浏览器窗口之间通信等功能。 BOM是由浏览器所提供的一系列对象，例如 window 对象等。DOM中的document对象实际上是window对象的属性。 Window对象是BOM 结构中的最顶层的对象，其他对象都是以">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: false,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://mengyujing.com/javascript之BOM简单介绍/">
+
+
+
+
+
+  <title>javascript之BOM简单介绍 | 勤，以随心</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">勤，以随心</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-games">
+          <a href="/games" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-gamepad"></i> <br>
+            
+            游戏
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://mengyujing.com/javascript之BOM简单介绍/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="孟玉晶">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="勤，以随心">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">javascript之BOM简单介绍</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-01T14:00:23+08:00">
+                2017-06-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+		  
+
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"> 阅读</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  2,538
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  10
+                </span>
+              
+            </div>
+           
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="BOM"><a href="#BOM" class="headerlink" title="BOM"></a>BOM</h1><p>BOM的全称为 Browser Object Model ，被译为 浏览器对象模型。BOM提供了独立于HTML页面内容，而与浏览器相关的一系列对象。主要被用于管理浏览器窗口及与浏览器窗口之间通信等功能。</p>
+<p>BOM是由浏览器所提供的一系列对象，例如 window 对象等。DOM中的document对象实际上是window对象的属性。</p>
+<p>Window对象是BOM 结构中的最顶层的对象，其他对象都是以Window对象的属性形式出现。<br><a id="more"></a></p>
+<blockquote>
+<p>BOM是JavaScript中唯一一个没有标准的内容。</p>
+</blockquote>
+<blockquote>
+<p>javascript中的语法标准是 ECMA ，DOM 的标准是 W3C 制定的。</p>
+</blockquote>
+<h1 id="window对象"><a href="#window对象" class="headerlink" title="window对象"></a>window对象</h1><p>Window 对象表示当前浏览器窗口，是BOM 中最顶层的对象。Window对象的属性和方法应用于当前整个浏览器窗口。</p>
+<h2 id="全局Window对象"><a href="#全局Window对象" class="headerlink" title="全局Window对象"></a>全局Window对象</h2><p>由于Window对象是浏览器窗口中最顶层的对象，也就是说，定义在全局域中的变量和函数，实际上都可以是Window对象的属性和方法。</p>
+<p>调用window对象的属性和方法时，可以省略”window.”。</p>
+<p>定义全局变量和函数时，实际上是为window对象添加属性和方法。</p>
+<pre><code>var a = &apos;a&apos;;
+</code></pre><ul>
+<li>直接调用全局变量名称 - console.log(a)</li>
+<li>通过window对象的属性形式调用 - window.a</li>
+<li>通过this关键字调用 - this.a</li>
+</ul>
+<blockquote>
+<p>值得说明的是: 这一点与 JavaScript 作用域有很大关系。</p>
+</blockquote>
+<h2 id="Window对象与-self-属性"><a href="#Window对象与-self-属性" class="headerlink" title="Window对象与 self 属性"></a>Window对象与 self 属性</h2><p>Window 对象的 self 属性返回当前浏览器窗口的只读引用。换句话讲，self 属性返回的是 Window 对象的引用。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">    TODO self 属性 - 就是 window 对象</span><br><span class="line">    TODO * 直接操作 window 对象 - 属性或方法是可被修改的</span><br><span class="line">    TODO * self 属性 - 相等于只读的 window 对象</span><br><span class="line">    TODO   * 在实际开发中，使用 window = window.self， 更安全</span><br><span class="line">*/</span><br><span class="line">console.log(window == window.self); // <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<h2 id="滚动窗口操作"><a href="#滚动窗口操作" class="headerlink" title="滚动窗口操作"></a>滚动窗口操作</h2><p>Window 对象提供了以下两个滚动浏览器窗口的方法:</p>
+<ul>
+<li><p>scrollBy(x, y): 根据指定像素值来滚动浏览器窗口。将页面从当前位置移动指定的距离。<br>x：向右移动的距离。如果为负值，则向左移动。<br>y：向下移动的距离。如果为负值，则向上移动。</p>
+</li>
+<li><p>scrollTo(x, y): 将浏览器窗口滚动到指定坐标值。将页面移动到指定的坐标值(x, y)。</p>
+</li>
+</ul>
+<h1 id="navigator对象"><a href="#navigator对象" class="headerlink" title="navigator对象"></a>navigator对象</h1><p>Navigator 对象表示当前浏览器，该对象包含了浏览器的信息。</p>
+<blockquote>
+<p>值得注意的是: Navigator 对象没有相应标准，不过各个浏览器都支持。</p>
+</blockquote>
+<h2 id="常用属性"><a href="#常用属性" class="headerlink" title="常用属性"></a>常用属性</h2><p>Navigator 对象提供一系列常用属性，获取当前浏览器的信息。具体内容如下:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性名称</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">appCodeName</td>
+<td style="text-align:center">浏览器的代码名</td>
+</tr>
+<tr>
+<td style="text-align:center">appName</td>
+<td style="text-align:center">浏览器的名称</td>
+</tr>
+<tr>
+<td style="text-align:center">appVersion</td>
+<td style="text-align:center">浏览器的平台和版本信息</td>
+</tr>
+<tr>
+<td style="text-align:center">platform</td>
+<td style="text-align:center">运行浏览器的操作系统平台</td>
+</tr>
+</tbody>
+</table>
+<p>使用不同浏览器，结果如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性名称</th>
+<th>Chrome</th>
+<th>firefox</th>
+<th>IE11</th>
+<th>IE8</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">appCodeName</td>
+<td>Mozilla</td>
+<td>Mozilla</td>
+<td>Mozilla</td>
+<td>Mozilla</td>
+</tr>
+<tr>
+<td style="text-align:center">appName</td>
+<td>Netscape</td>
+<td>Netscape</td>
+<td>Netscape</td>
+<td>Microsoft Internet Explorer</td>
+</tr>
+<tr>
+<td style="text-align:center">appVersion</td>
+<td>5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36</td>
+<td>5.0 (Windows)</td>
+<td>5.0 (Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729; rv:11.0) like Gecko</td>
+<td>4.0 (compatible; MSIE 8.0; Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729)</td>
+</tr>
+<tr>
+<td style="text-align:center">platform</td>
+<td>Win32</td>
+<td>Win32</td>
+<td>Win32</td>
+<td>Win32</td>
+</tr>
+</tbody>
+</table>
+<h2 id="userAgent属性"><a href="#userAgent属性" class="headerlink" title="userAgent属性"></a>userAgent属性</h2><p>Navigator 对象提供很多属性，可以来识别当前浏览器及操作系统信息。但绝大多数属性在目前浏览器中已经不再起作用了。而 Navigator 对象的 userAgent 属性依旧可以实现识别浏览器的功能。</p>
+<p>userAgent 属性返回由客户机发送服务器的 user-agent 头部的值。userAgent 属性是一个只读的字符串，声明了浏览器用于 HTTP 请求的用户代理头的值。</p>
+<style>
+    table th:first-of-type{
+        width: 100px;
+    }
+</style>
+
+<table>
+<thead>
+<tr>
+<th>浏览器产品</th>
+<th>userAgent属性值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Firefox</td>
+<td>Mozilla/5.0 (Windows NT 6.1; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0</td>
+</tr>
+<tr>
+<td>Chrome</td>
+<td>Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.82 Safari/537.36</td>
+</tr>
+<tr>
+<td>IE 8</td>
+<td>Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/7.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; .NET4.0E)</td>
+</tr>
+<tr>
+<td>IE 9</td>
+<td>Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/7.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; .NET4.0E)</td>
+</tr>
+<tr>
+<td>IE 10</td>
+<td>Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/7.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; .NET4.0E)</td>
+</tr>
+<tr>
+<td>IE 11</td>
+<td>Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; .NET4.0E; rv:11.0) like Gecko</td>
+</tr>
+<tr>
+<td>Safari</td>
+<td>Mozilla/5.0 (Macintosh; Intel Mac OS X 10124) AppleWebKit/603.1.30 (KHTML, like Gecko) Version/10.1 Safari/603.1.30</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>值得注意的是: IE 11 版本的 userAgent 属性信息已经不再包含有关 IE 浏览器的信息，所以我们不能通过 userAgent 属性判断 IE 11 浏览器了。</p>
+</blockquote>
+<p>作用：</p>
+<ul>
+<li><p>用于判断用户当前的浏览器产品</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var ua = navigator.userAgent;</span><br><span class="line"><span class="keyword">if</span>(/firefox/i.test(ua))&#123;</span><br><span class="line">    console.log(<span class="string">'当前使用的是 Firefox 浏览器'</span>);</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(/chrome/i.test(ua))&#123;</span><br><span class="line">    console.log(<span class="string">'当前使用的是 Chrome 浏览器'</span>);</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(/safari/i.test(ua))&#123;</span><br><span class="line">    console.log(<span class="string">'当前使用的是 Safari 浏览器'</span>);</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(/msie/i.test(ua))&#123;</span><br><span class="line">    console.log(<span class="string">'当前使用的是 IE 11 之前版本的浏览器'</span>);</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="string">"ActiveXObject"</span> <span class="keyword">in</span> window)&#123;</span><br><span class="line">    console.log(<span class="string">'当前使用的是 IE 11 浏览器'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>用于判断用户当前的操作系统</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (/windows/i.test(ua))&#123;</span><br><span class="line">    console.log(<span class="string">'当前使用的是 Windows 操作系统'</span>);</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span> (/mac/i.test(ua))&#123;</span><br><span class="line">    console.log(<span class="string">'当前使用的是 Mac 操作系统'</span>);</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span> (/android/i.test(ua))&#123;</span><br><span class="line">    console.log(<span class="string">'当前使用的是 Android 操作系统'</span>);</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span> (/iphone/i.test(ua))&#123;</span><br><span class="line">    console.log(<span class="string">'当前使用的是 iPhone 操作系统'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="history对象"><a href="#history对象" class="headerlink" title="history对象"></a>history对象</h1><p>History 对象包含用户在浏览器中访问过的 URL（网址）。</p>
+<h2 id="length属性"><a href="#length属性" class="headerlink" title="length属性"></a>length属性</h2><p>History 对象的 length 属性可以获取用户在浏览器中访问网址的数量。</p>
+<blockquote>
+<p>length 属性声明了浏览器历史列表中的元素数量。</p>
+</blockquote>
+<h2 id="前进与后退"><a href="#前进与后退" class="headerlink" title="前进与后退"></a>前进与后退</h2><p>History 对象还提供了以下方法实现浏览器前进和后退功能。具体方法如下:</p>
+<ul>
+<li>forward(): 实现跳转下一个页面，作用和浏览器的前进按钮一样。</li>
+<li>back(): 实现转跳到上一个页面，作用和浏览器的回退按钮一样。</li>
+<li>go(): 实现跳转到指定的页面。如果为负数表示后退，如果为正数表示前进。</li>
+</ul>
+<h1 id="location对象"><a href="#location对象" class="headerlink" title="location对象"></a>location对象</h1><p>Location 对象包含了浏览器的地址栏中的信息。该对象主要用于获取和设置地址。</p>
+<h2 id="获取和设置地址"><a href="#获取和设置地址" class="headerlink" title="获取和设置地址"></a>获取和设置地址</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 获取当前浏览器窗口的地址栏信息</span><br><span class="line">console.log(<span class="string">'Location对象为: '</span> + window.location); // 得到location对象</span><br><span class="line">// 设置当前浏览器窗口的地址栏信息</span><br><span class="line">window.location = <span class="string">'http://www.baidu.com'</span>;</span><br></pre></td></tr></table></figure>
+<p>上述功能我们同样可以通过 Location 对象的 href 属性完成。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 获取当前浏览器窗口的地址栏信息</span><br><span class="line">console.log(<span class="string">'Location对象的href属性为: '</span> + location.href);</span><br><span class="line">// 设置当前浏览器窗口的地址栏信息</span><br><span class="line">location.href = <span class="string">'http://www.baidu.com'</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="location对象的属性"><a href="#location对象的属性" class="headerlink" title="location对象的属性"></a>location对象的属性</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">hash</td>
+<td style="text-align:left">设置或返回从井号 (#) 开始的 URL（锚）。</td>
+</tr>
+<tr>
+<td style="text-align:center">host</td>
+<td style="text-align:left">设置或返回主机名和当前 URL 的端口号。</td>
+</tr>
+<tr>
+<td style="text-align:center">hostname</td>
+<td style="text-align:left">设置或返回当前 URL 的主机名。</td>
+</tr>
+<tr>
+<td style="text-align:center">href</td>
+<td style="text-align:left">设置或返回完整的 URL。</td>
+</tr>
+<tr>
+<td style="text-align:center">pathname</td>
+<td style="text-align:left">设置或返回当前 URL 的路径部分。</td>
+</tr>
+<tr>
+<td style="text-align:center">port</td>
+<td style="text-align:left">设置或返回当前 URL 的端口号。</td>
+</tr>
+<tr>
+<td style="text-align:center">protocol</td>
+<td style="text-align:left">设置或返回当前 URL 的协议。</td>
+</tr>
+<tr>
+<td style="text-align:center">search</td>
+<td style="text-align:left">设置或返回从问号 (?) 开始的 URL（查询部分）。</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">console.log(location.href);// http://localhost:63342/DAY21_prac/CODE/06_Location%E5%AF%B9%E8%B1%A1.html?_ijt=m43hr038iube02pjfo42jk0lpt</span><br><span class="line">console.log(location.host); // localhost:63342</span><br><span class="line">console.log(location.hostname); // localhost</span><br><span class="line">console.log(location.port); // 63342</span><br><span class="line">console.log(location.pathname); // /DAY21_prac/CODE/06_Location%E5%AF%B9%E8%B1%A1.html</span><br><span class="line">console.log(location.protocol); // http:</span><br></pre></td></tr></table></figure>
+<h2 id="location对象的方法"><a href="#location对象的方法" class="headerlink" title="location对象的方法"></a>location对象的方法</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">方法名</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">assign()</td>
+<td style="text-align:center">载入一个新的文档，作用和直接修改 location 相同</td>
+</tr>
+<tr>
+<td style="text-align:center">reload()</td>
+<td style="text-align:center">重新载入当前文档，作用和刷新按钮一样。参数为 true 时，则会强制清空缓存刷新页面</td>
+</tr>
+<tr>
+<td style="text-align:center">replace()</td>
+<td style="text-align:center">用新的文档替换当前文档（不会生成历史记录，不能使用回退按钮回退）</td>
+</tr>
+</tbody>
+</table>
+<h1 id="screen对象"><a href="#screen对象" class="headerlink" title="screen对象"></a>screen对象</h1><p>Screen 对象包含有关客户端显示屏幕的信息。</p>
+<p>screen对象的属性</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">availHeight</td>
+<td style="text-align:center">返回显示屏幕的高度 (除 Windows 任务栏之外)。</td>
+</tr>
+<tr>
+<td style="text-align:center">availWidth</td>
+<td style="text-align:center">返回显示屏幕的宽度 (除 Windows 任务栏之外)。</td>
+</tr>
+<tr>
+<td style="text-align:center">bufferDepth</td>
+<td style="text-align:center">设置或返回调色板的比特深度。</td>
+</tr>
+<tr>
+<td style="text-align:center">colorDepth</td>
+<td style="text-align:center">返回目标设备或缓冲器上的调色板的比特深度。</td>
+</tr>
+<tr>
+<td style="text-align:center">deviceXDPI</td>
+<td style="text-align:center">返回显示屏幕的每英寸水平点数。</td>
+</tr>
+<tr>
+<td style="text-align:center">deviceYDPI</td>
+<td style="text-align:center">返回显示屏幕的每英寸垂直点数。</td>
+</tr>
+<tr>
+<td style="text-align:center">fontSmoothingEnabled</td>
+<td style="text-align:center">返回用户是否在显示控制面板中启用了字体平滑。</td>
+</tr>
+<tr>
+<td style="text-align:center">height</td>
+<td style="text-align:center">返回显示屏幕的高度。</td>
+</tr>
+<tr>
+<td style="text-align:center">logicalXDPI</td>
+<td style="text-align:center">返回显示屏幕每英寸的水平方向的常规点数。</td>
+</tr>
+<tr>
+<td style="text-align:center">logicalYDPI</td>
+<td style="text-align:center">返回显示屏幕每英寸的垂直方向的常规点数。</td>
+</tr>
+<tr>
+<td style="text-align:center">pixelDepth</td>
+<td style="text-align:center">返回显示屏幕的颜色分辨率（比特每像素）。</td>
+</tr>
+<tr>
+<td style="text-align:center">updateInterval</td>
+<td style="text-align:center">设置或返回屏幕的刷新率。</td>
+</tr>
+<tr>
+<td style="text-align:center">width</td>
+<td style="text-align:center">返回显示器屏幕的宽度。</td>
+</tr>
+</tbody>
+</table>
+<h1 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h1><h2 id="setInterval-和clearInterval"><a href="#setInterval-和clearInterval" class="headerlink" title="setInterval()和clearInterval()"></a>setInterval()和clearInterval()</h2><p>setInterval(code, millisec, lang)<br>含义：按照设置的时间，周期性执行指定逻辑代码<br>参数：</p>
+<ul>
+<li>code : 要调用的函数或要执行的代码</li>
+<li>millisec : 定时器的周期时间，以毫秒为单位</li>
+<li>lang : 可选，javascript</li>
+</ul>
+<p>返回值：设置当前定时器的标识(唯一，不可重复)</p>
+<p>clearInterval(id_of_setinterval)<br>含义：取消定时器<br>参数：</p>
+<ul>
+<li>id_of_setinterval ：指定清除的定时器标识</li>
+</ul>
+<h2 id="setTimeout-和clearTimeout"><a href="#setTimeout-和clearTimeout" class="headerlink" title="setTimeout()和clearTimeout()"></a>setTimeout()和clearTimeout()</h2><p>setTimeout(code, millisec)<br>含义：按照设置的时间，向后延迟执行指定逻辑代码<br>参数：</p>
+<ul>
+<li>code - 设置延迟执行的指定逻辑代码</li>
+<li>millisec - 设置定时器的时间，单位为毫秒</li>
+</ul>
+<p>返回值：设置当前定时器的标识(唯一，不可重复)</p>
+<p>clearTimeout(id_of_settimeout)<br>含义：取消定时器<br>参数：</p>
+<ul>
+<li>id_of_settimeout ：指定清除的定时器标识</li>
+</ul>
+
+      
+    </div>
+
+	<div>
+	  
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+	  
+	</div>
+	
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/BOM/" rel="tag"><i class="fa fa-tag"></i> BOM</a>
+          
+            <a href="/tags/window对象/" rel="tag"><i class="fa fa-tag"></i> window对象</a>
+          
+            <a href="/tags/navigator/" rel="tag"><i class="fa fa-tag"></i> navigator</a>
+          
+            <a href="/tags/history/" rel="tag"><i class="fa fa-tag"></i> history</a>
+          
+            <a href="/tags/location/" rel="tag"><i class="fa fa-tag"></i> location</a>
+          
+            <a href="/tags/screen/" rel="tag"><i class="fa fa-tag"></i> screen</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/javascript之DOM简单介绍/" rel="next" title="javascript之DOM简单介绍">
+                <i class="fa fa-chevron-left"></i> javascript之DOM简单介绍
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/JavaScript数组排序/" rel="prev" title="JavaScript数组排序">
+                JavaScript数组排序 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+ <!-- <a class="jiathis_button_tqq"></a> -->
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+ <!-- <a class="jiathis_button_renren"></a> -->
+  <a class="jiathis_button_qzone"></a>
+ <!-- <a class="jiathis_button_kaixin001"></a> -->
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="孟玉晶">
+          <p class="site-author-name" itemprop="name">孟玉晶</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">50</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">91</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/huajianduzhuo" target="_blank" title="github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://juejin.im/user/5921a68ea0bb9f005f57f51b" target="_blank" title="掘金">
+                  
+                    <i class="fa fa-fw fa-angle-double-down"></i>
+                  
+                  掘金
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://segmentfault.com/u/mengyj" target="_blank" title="segmentfault">
+                  
+                    <i class="fa fa-fw fa-crosshairs"></i>
+                  
+                  segmentfault
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              推荐阅读
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://developer.mozilla.org/zh-CN/" title="Mozilla中文社区" target="_blank">Mozilla中文社区</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.uisdc.com/" title="优设" target="_blank">优设</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.alloyteam.com/" title="腾讯前端" target="_blank">腾讯前端</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://ife.baidu.com/" title="百度前端技术学院" target="_blank">百度前端技术学院</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://taobaofed.org/" title="淘宝前端" target="_blank">淘宝前端</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.zhangxinxu.com/" title="张鑫旭" target="_blank">张鑫旭</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.ruanyifeng.com/blog/" title="阮一峰" target="_blank">阮一峰</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.daqianduan.com/" title="大前端" target="_blank">大前端</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#BOM"><span class="nav-number">1.</span> <span class="nav-text">BOM</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#window对象"><span class="nav-number">2.</span> <span class="nav-text">window对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#全局Window对象"><span class="nav-number">2.1.</span> <span class="nav-text">全局Window对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Window对象与-self-属性"><span class="nav-number">2.2.</span> <span class="nav-text">Window对象与 self 属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#滚动窗口操作"><span class="nav-number">2.3.</span> <span class="nav-text">滚动窗口操作</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#navigator对象"><span class="nav-number">3.</span> <span class="nav-text">navigator对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#常用属性"><span class="nav-number">3.1.</span> <span class="nav-text">常用属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#userAgent属性"><span class="nav-number">3.2.</span> <span class="nav-text">userAgent属性</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#history对象"><span class="nav-number">4.</span> <span class="nav-text">history对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#length属性"><span class="nav-number">4.1.</span> <span class="nav-text">length属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前进与后退"><span class="nav-number">4.2.</span> <span class="nav-text">前进与后退</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#location对象"><span class="nav-number">5.</span> <span class="nav-text">location对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#获取和设置地址"><span class="nav-number">5.1.</span> <span class="nav-text">获取和设置地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#location对象的属性"><span class="nav-number">5.2.</span> <span class="nav-text">location对象的属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#location对象的方法"><span class="nav-number">5.3.</span> <span class="nav-text">location对象的方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#screen对象"><span class="nav-number">6.</span> <span class="nav-text">screen对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#定时器"><span class="nav-number">7.</span> <span class="nav-text">定时器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#setInterval-和clearInterval"><span class="nav-number">7.1.</span> <span class="nav-text">setInterval()和clearInterval()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#setTimeout-和clearTimeout"><span class="nav-number">7.2.</span> <span class="nav-text">setTimeout()和clearTimeout()</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!-- <div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_page_pv">
+  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+</span>
+</div> -->
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">孟玉晶</span>
+</div>
+
+<!-- 
+ <div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div> 
+ -->
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"> 本站访问数</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"> 本站总访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/texiao.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (search_path.endsWith("json")) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.1"></script>
+
+
+  
+
+  	<a href="https://github.com/huajianduzhuo"><img style="position: absolute; top: 0; left: 0; border: 0; z-index: 100;" src="https://camo.githubusercontent.com/c6286ade715e9bea433b4705870de482a654f78a/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f77686974655f6666666666662e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_white_ffffff.png"></a>
+
+</body>
+</html>
