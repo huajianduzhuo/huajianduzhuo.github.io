@@ -14,13 +14,6 @@
     </url>
 
     <url>
-        <loc>http://mengyujing.com/categories/CSS%E9%A2%84%E5%A4%84%E7%90%86%E5%99%A8/</loc>
-        <lastmod>2019-10-24T11:41:37.159Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://mengyujing.com/categories/markdown/</loc>
         <lastmod>2019-10-24T11:41:37.159Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -28,8 +21,8 @@
     </url>
 
     <url>
-        <loc>http://mengyujing.com/categories/Vue/</loc>
-        <lastmod>2019-10-24T11:41:37.162Z</lastmod>
+        <loc>http://mengyujing.com/categories/CSS%E9%A2%84%E5%A4%84%E7%90%86%E5%99%A8/</loc>
+        <lastmod>2019-10-24T11:41:37.159Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -121,6 +114,13 @@
     <url>
         <loc>http://mengyujing.com/categories/pwa/</loc>
         <lastmod>2019-10-31T13:25:05.564Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://mengyujing.com/categories/Vue/</loc>
+        <lastmod>2019-11-09T11:12:38.240Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
