@@ -35,6 +35,13 @@
     </url>
     
     <url>
+        <loc>http://mengyujing.com/board/</loc>
+        <lastmod>2019-10-24T11:41:37.171Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
         <loc>http://mengyujing.com/about/</loc>
         <lastmod>2019-10-24T11:41:37.171Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -43,13 +50,6 @@
     
     <url>
         <loc>http://mengyujing.com/categories/</loc>
-        <lastmod>2019-10-24T11:41:37.171Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <url>
-        <loc>http://mengyujing.com/board/</loc>
         <lastmod>2019-10-24T11:41:37.171Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
