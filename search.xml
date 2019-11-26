@@ -1,6 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>vue {{}}中内容的换行问题</title>
+    <url>/vue-%E4%B8%AD%E5%86%85%E5%AE%B9%E7%9A%84%E6%8D%A2%E8%A1%8C%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<p>换行的两种方式：</p>
+<ul>
+<li>使用 <code>&lt;br&gt;</code> 和 <code>v-html</code></li>
+<li>设置 <code>white-space: pre-wrap;</code></li>
+</ul>
+<p>使用不同方式显示内容时，换行问题总结：<br><a id="more"></a></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">文本显示方式</th>
+<th style="text-align:center"><code>\n</code></th>
+<th style="text-align:center"><code>&lt;br&gt;</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">vue 中使用 <code>{ { } }</code></td>
+<td style="text-align:center">默认不换行，<code>\n</code> 的位置会有空格，设置样式 <code>white-space: pre-wrap;</code> ，可以换行</td>
+<td style="text-align:center">不换行</td>
+</tr>
+<tr>
+<td style="text-align:center">textContent</td>
+<td style="text-align:center">默认不换行，<code>\n</code> 的位置会有空格，可通过设置 <code>white-space: pre-wrap;</code> 换行</td>
+<td style="text-align:center">不换行</td>
+</tr>
+<tr>
+<td style="text-align:center">innerHTML</td>
+<td style="text-align:center">默认不换行，<code>\n</code> 的位置会有空格，可通过设置 <code>white-space: pre-wrap;</code> 换行</td>
+<td style="text-align:center">换行</td>
+</tr>
+<tr>
+<td style="text-align:center">innerText</td>
+<td style="text-align:center">默认换行</td>
+<td style="text-align:center">不换行</td>
+</tr>
+<tr>
+<td style="text-align:center">textarea 标签的 value</td>
+<td style="text-align:center">默认换行</td>
+<td style="text-align:center">不换行</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+      <categories>
+        <category>Vue</category>
+      </categories>
+      <tags>
+        <tag>换行</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Proxy学习笔记</title>
     <url>/Proxy%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<p>参考：<a href="http://es6.ruanyifeng.com/#docs/proxy" target="_blank" rel="noopener">阮一峰Proxy教程</a></p>
