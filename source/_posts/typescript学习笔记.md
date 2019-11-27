@@ -5,19 +5,13 @@ tags: [typescript]
 categories: typescript
 ---
 
-# typescript 学习笔记
-
-当前学习版本为 `Typescript 2.7`
-
-教程：[https://www.tslang.cn/docs/handbook/basic-types.html](https://www.tslang.cn/docs/handbook/basic-types.html)
-
-<!--more-->
-
 ## 安装与使用
 
 **全局安装 typescript**
 
 `npm install -g typescript`
+
+<!--more-->
 
 **编译**
 
@@ -2129,3 +2123,288 @@ let tri = new Polygons.Triggle()
 
 注意，我们并没有使用`require`关键字，而是直接使用导入符号的限定名赋值。这与使用 var 相似，但它还适用于类型和导入的具有命名空间含义的符号。重要的是，对于值来讲，`import`会生成与原始符号不同的引用，所以改变别名的 var 值并不会影响原始变量的值。
 
+## Decorators
+
+装饰器是一种特殊类型的声明，它能够被附加到类声明，方法， 访问符，属性或参数上，可以修改类的行为。
+
+使用方式：`@expression`，expression 求值后必须是一个函数。
+
+> 装饰器是一项实验性特性，若要使用，需要在 `tsconfig.json` 中的 `compilerOptions` 里启用 `"experimentalDecorators": true`
+
+### Decorator 基本使用
+
+装饰器本身就是一个函数，被声明的信息会作为参数传入装饰器中。如下：
+
+```typescript
+function path(target: any) {
+  console.log('I am decorator')
+}
+@path
+class Hello {}
+```
+
+上面的代码中，`path` 为装饰器函数，用在类 `Hello` 声明上，`Hello` 会作为参数传入 `path` 中。编译后的 js：
+
+```javascript
+var __decorate =
+  (this && this.__decorate) ||
+  function(decorators, target, key, desc) {
+    var c = arguments.length,
+      r =
+        c < 3
+          ? target
+          : desc === null
+          ? (desc = Object.getOwnPropertyDescriptor(target, key))
+          : desc,
+      d
+    if (typeof Reflect === 'object' && typeof Reflect.decorate === 'function')
+      r = Reflect.decorate(decorators, target, key, desc)
+    else
+      for (var i = decorators.length - 1; i >= 0; i--)
+        if ((d = decorators[i]))
+          r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r
+    return c > 3 && r && Object.defineProperty(target, key, r), r
+  }
+function path(target) {
+  console.log('I am decorator')
+}
+let Hello = class Hello {}
+Hello = __decorate([path], Hello)
+```
+
+如上，`__decorate` 为处理装饰器的函数。
+
+### 绑定参数
+
+有时候可能需要提前为装饰器函数绑定一些参数，可以使用类似 `bind` 的做法。
+
+可以定义一个**装饰器工厂函数**，用来接收需要绑定的参数，并且该装饰器工厂函数**必须返回一个函数，返回的函数才是真正的装饰器函数**。
+
+```typescript
+function path(prePath: string) {
+  return function (target: new () => object) {
+    target.prototype.prePath = prePath
+  }
+}
+@path('src')
+class Hello {}
+```
+
+如上代码中，`path` 不再是装饰器函数，而是装饰器工厂函数，它用来接收预先绑定的参数。`path 返回的函数` 则是真正的装饰器函数，`Hello` 会作为参数传入该函数中。编译后的 js：
+
+```javascript
+function path(prePath) {
+  return function(target) {
+    target.prototype.prePath = prePath
+  }
+}
+let Hello = class Hello {}
+Hello = __decorate([path('src')], Hello)
+```
+
+可以看到，与 path 未传参数时的结果 `__decorate([path], Hello)` 对比，传了参数的结果为 `__decorate([path('src')], Hello)`，说明此时装饰器函数已经不是 `path`，而是 `path` 执行后返回的函数，并且绑定了一些预传参数。
+
+
+### 类装饰器
+
+应用于类构造函数，会将类的构造函数作为参数传入装饰器函数中。
+
+举例参考上面的 `Decorator 基本使用` 和 `绑定参数`
+
+### 方法装饰器
+
+会应用在方法的**属性描述符**上，可以用来监视，修改或者替换方法定义。
+
+装饰器函数会接收 3 个参数：
+
+* 对于静态成员来说是类的构造函数，对于实例成员是类的原型对象
+* 成员的名字
+* 成员的属性描述符
+
+> 如果代码输出目标版本小于 `ES5`，属性描述符将会是 `undefined`
+
+**装饰器应用于实例方法：**
+
+```typescript
+function Get(target: any, key: string, desc: PropertyDescriptor) {
+  console.log(target, key, desc)
+}
+class Per {
+  constructor() {}
+  @Get
+  say() {}
+}
+```
+
+如上代码，装饰器函数 `Get` 的参数中，`target` 为类 `Per` 的原型对象，`key` 为方法名 `say`，`desc` 为属性描述符。编译后的 js：
+
+```javascript
+function Get(target, key, desc) {
+  console.log(target, key, desc)
+}
+class Per {
+  constructor() {}
+  say() {}
+}
+__decorate([Get], Per.prototype, 'say', null)
+```
+
+需要注意，上面 `__decorate` 的参数中，`desc` 传的虽然是 `null`，但是在 `__decorate` 函数内部，会将 `desc` 赋值为属性描述符。
+
+**装饰器应用于静态方法：**
+
+```typescript
+function Get(target: any, key: string, desc: PropertyDescriptor) {
+  console.log(target, key, desc)
+}
+class Per {
+  constructor() {}
+  @Get
+  static move() {}
+}
+```
+
+编译后的 js：
+
+```javascript
+function Get(target, key, desc) {
+  console.log(target, key, desc)
+}
+class Per {
+  constructor() {}
+  static move() {}
+}
+__decorate([Get], Per, 'move', null)
+```
+
+如上，装饰器函数 `Get` 的参数中，`target` 为类 `Per` 的构造函数，`key` 为方法名 `move`，`desc` 为属性描述符。
+
+> 如果方法装饰器函数返回一个值，它会被当作该方法的属性描述符。
+
+### 访问器装饰器
+
+访问器装饰器应用于访问器的**属性描述符**并且可以用来监视，修改或替换一个访问器的定义。
+
+> TypeScript 不允许同时装饰一个成员的 get 和 set 访问器。取而代之的是，一个成员的所有装饰器必须应用在文档顺序的第一个访问器上。这是因为，在装饰器应用于一个属性描述符时，它联合了 get 和 set 访问器，而不是分开声明的。
+
+装饰器函数会接收 3 个参数：
+
+* 对于静态成员来说是类的构造函数，对于实例成员是类的原型对象
+* 成员的名字
+* 成员的属性描述符
+
+```typescript
+function configurable(value: boolean) {
+  return function (target: any, key: string, desc: PropertyDescriptor) {
+    desc.configurable = value
+  }
+}
+class Point {
+  @configurable(false)
+  get x () {
+    return 0
+  }
+}
+```
+
+> 如果访问器装饰器函数返回一个值，它会被用作该访问器属性的属性描述符。
+
+```typescript
+function configurable(value: boolean) {
+  return function (target: any, key: string, desc: PropertyDescriptor): PropertyDescriptor {
+    desc.configurable = value
+    let x = 4
+    return {
+      configurable: true,
+      enumerable: true,
+      get () {return x},
+      set (v) {x = v}
+    }
+  }
+}
+class Point {
+  @configurable(false)
+  get x () {
+    return 0
+  }
+}
+console.log(Point.prototype.x) // 4
+```
+
+如上代码，编译为 js 之后执行，x 的值为 4，因为装饰器函数返回的属性描述符替换了 x 本身的属性描述符。
+
+### 属性装饰器
+
+装饰器函数会接收 2 个参数：
+
+* 对于静态成员来说是类的构造函数，对于实例成员是类的原型对象
+* 成员的名字
+
+> 属性描述符不会做为参数传入属性装饰器，这与TypeScript是如何初始化属性装饰器的有关。 因为目前没有办法在定义一个原型对象的成员时描述一个实例属性，并且没办法监视或修改一个属性的初始化方法。返回值也会被忽略。因此，属性描述符只能用来监视类中是否声明了某个名字的属性。
+
+```typescript
+function defaultValue(value: string) {
+  return function (target, key) {
+    target[key] = value
+  }
+}
+class Person {
+  @defaultValue('white') name: string
+}
+console.log(new Person().name) // white
+```
+
+### 参数装饰器
+
+应用于类构造函数或方法声明。
+
+装饰器函数会接收 3 个参数：
+
+* 对于静态成员来说是类的构造函数，对于实例成员是类的原型对象
+* 成员的名字
+* 参数在函数参数列表中的索引
+
+> 参数装饰器只能用来监视一个方法的参数是否被传入
+> 参数装饰器的返回值会被忽略
+
+```typescript
+function dd(target: any, methodName: string, index: number) {
+  console.log(target, methodName, index) // Person 原型对象，say, 0
+}
+class Person {
+  say (@dd name: string) {}
+}
+```
+
+### 装饰器组合
+
+多个装饰器可以应用到一个声明上。
+
+```typescript
+function A() {
+  console.log('A')
+  return function (target) {
+    console.log('A inner')
+  }
+}
+function B() {
+  console.log('B')
+  return function (target) {
+    console.log('B inner')
+  }
+}
+@A()
+@B()
+class C {}
+```
+
+如上代码，编译后运行的结果为：
+
+```
+f
+g
+g inner
+f inner
+```
+
+复合装饰器时，装饰器工厂函数会由上至下依次执行，而装饰器函数则由下至上执行。
