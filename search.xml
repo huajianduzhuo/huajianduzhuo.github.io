@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Web Components初识</title>
+    <url>/Web-Components%E5%88%9D%E8%AF%86/</url>
+    <content><![CDATA[<h1 id="Web-Components"><a href="#Web-Components" class="headerlink" title="Web Components"></a>Web Components</h1><p>MDN: <a href="https://developer.mozilla.org/zh-CN/docs/Web/Web_Components" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/Web_Components</a></p>
+<p>自定义 HTML 标签，必须使用 <code>-</code> 连字符，以区分于原生 HTML标签。</p>
+<a id="more"></a>
+<h2 id="定义自定义元素"><a href="#定义自定义元素" class="headerlink" title="定义自定义元素"></a>定义自定义元素</h2><p>定义一个自定义元素，首先需要定义一个类，并继承 <code>HTMLElement</code> 类，来继承 HTML 元素的特性。</p>
+<p>通过标签使用自定义元素，即该类的实例。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserCard</span> <span class="keyword">extends</span> <span class="title">HTMLElement</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span> () &#123;</span><br><span class="line">    <span class="keyword">super</span>()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后，需要调用 <code>window.customElements.define</code> 方法，将 <code>user-card</code> 标签与这个类关联。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">window</span>.customElements.define(<span class="string">'user-card'</span>, UserCard)</span><br></pre></td></tr></table></figure>
+<h2 id="自定义元素添加内容"><a href="#自定义元素添加内容" class="headerlink" title="自定义元素添加内容"></a>自定义元素添加内容</h2><p>自定义元素中的内容，在创建的 class 的构造函数中定义。<code>this</code> 即为自定义元素实例。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserCard</span> <span class="keyword">extends</span> <span class="title">HTMLElement</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span> () &#123;</span><br><span class="line">    <span class="keyword">super</span>()</span><br><span class="line">    <span class="keyword">let</span> image = <span class="built_in">document</span>.createElement(<span class="string">'img'</span>)</span><br><span class="line">    image.classList.add(<span class="string">'image'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> wrap = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>)</span><br><span class="line">    wrap.classList.add(<span class="string">'wrap'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> name = <span class="built_in">document</span>.createElement(<span class="string">'p'</span>)</span><br><span class="line">    name.classList.add(<span class="string">'name'</span>)</span><br><span class="line">    name.innerText = <span class="string">'姓名：白宇'</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> works = <span class="built_in">document</span>.createElement(<span class="string">'p'</span>)</span><br><span class="line">    works.classList.add(<span class="string">'works'</span>)</span><br><span class="line">    works.innerText = <span class="string">'作品：银河补习班'</span></span><br><span class="line"></span><br><span class="line">    wrap.append(name, works)</span><br><span class="line">    <span class="keyword">this</span>.append(image, wrap)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Web Components</category>
+      </categories>
+      <tags>
+        <tag>Web Components</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>npm各种问题解决方案</title>
     <url>/npm%E5%90%84%E7%A7%8D%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
     <content><![CDATA[<h2 id="安装包失败解决方式"><a href="#安装包失败解决方式" class="headerlink" title="安装包失败解决方式"></a>安装包失败解决方式</h2><h3 id="node-sass"><a href="#node-sass" class="headerlink" title="node-sass"></a>node-sass</h3><p><code>npm config set sass_binary_site https://npm.taobao.org/mirrors/node-sass/</code><br><a id="more"></a></p>

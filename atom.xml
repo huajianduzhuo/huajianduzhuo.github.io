@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://mengyujing.com/"/>
-  <updated>2019-11-26T16:18:00.890Z</updated>
+  <updated>2020-02-29T19:32:14.344Z</updated>
   <id>http://mengyujing.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Web Components初识</title>
+    <link href="http://mengyujing.com/Web-Components%E5%88%9D%E8%AF%86/"/>
+    <id>http://mengyujing.com/Web-Components初识/</id>
+    <published>2020-02-29T19:30:19.000Z</published>
+    <updated>2020-02-29T19:32:14.344Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Web-Components"><a href="#Web-Components" class="headerlink" title="Web Components"></a>Web Components</h1><p>MDN: <a href="https://developer.mozilla.org/zh-CN/docs/Web/Web_Components" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/Web_Components</a></p><p>自定义 HTML 标签，必须使用 <code>-</code> 连字符，以区分于原生 HTML标签。</p><a id="more"></a><h2 id="定义自定义元素"><a href="#定义自定义元素" class="headerlink" title="定义自定义元素"></a>定义自定义元素</h2><p>定义一个自定义元素，首先需要定义一个类，并继承 <code>HTMLElement</code> 类，来继承 HTML 元素的特性。</p><p>通过标签使用自定义元素，即该类的实例。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserCard</span> <span class="keyword">extends</span> <span class="title">HTMLElement</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span> () &#123;</span><br><span class="line">    <span class="keyword">super</span>()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>然后，需要调用 <code>window.customElements.define</code> 方法，将 <code>user-card</code> 标签与这个类关联。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.customElements.define(<span class="string">'user-card'</span>, UserCard)</span><br></pre></td></tr></table></figure><h2 id="自定义元素添加内容"><a href="#自定义元素添加内容" class="headerlink" title="自定义元素添加内容"></a>自定义元素添加内容</h2><p>自定义元素中的内容，在创建的 class 的构造函数中定义。<code>this</code> 即为自定义元素实例。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserCard</span> <span class="keyword">extends</span> <span class="title">HTMLElement</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span> () &#123;</span><br><span class="line">    <span class="keyword">super</span>()</span><br><span class="line">    <span class="keyword">let</span> image = <span class="built_in">document</span>.createElement(<span class="string">'img'</span>)</span><br><span class="line">    image.classList.add(<span class="string">'image'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> wrap = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>)</span><br><span class="line">    wrap.classList.add(<span class="string">'wrap'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> name = <span class="built_in">document</span>.createElement(<span class="string">'p'</span>)</span><br><span class="line">    name.classList.add(<span class="string">'name'</span>)</span><br><span class="line">    name.innerText = <span class="string">'姓名：白宇'</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> works = <span class="built_in">document</span>.createElement(<span class="string">'p'</span>)</span><br><span class="line">    works.classList.add(<span class="string">'works'</span>)</span><br><span class="line">    works.innerText = <span class="string">'作品：银河补习班'</span></span><br><span class="line"></span><br><span class="line">    wrap.append(name, works)</span><br><span class="line">    <span class="keyword">this</span>.append(image, wrap)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Web-Components&quot;&gt;&lt;a href=&quot;#Web-Components&quot; class=&quot;headerlink&quot; title=&quot;Web Components&quot;&gt;&lt;/a&gt;Web Components&lt;/h1&gt;&lt;p&gt;MDN: &lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/Web_Components&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://developer.mozilla.org/zh-CN/docs/Web/Web_Components&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;自定义 HTML 标签，必须使用 &lt;code&gt;-&lt;/code&gt; 连字符，以区分于原生 HTML标签。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Web Components" scheme="http://mengyujing.com/categories/Web-Components/"/>
+    
+    
+      <category term="Web Components" scheme="http://mengyujing.com/tags/Web-Components/"/>
+    
+  </entry>
   
   <entry>
     <title>npm各种问题解决方案</title>
@@ -518,29 +541,6 @@
     
     
       <category term="DOM重绘重排" scheme="http://mengyujing.com/tags/DOM%E9%87%8D%E7%BB%98%E9%87%8D%E6%8E%92/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>自定义bind函数</title>
-    <link href="http://mengyujing.com/%E8%87%AA%E5%AE%9A%E4%B9%89bind%E5%87%BD%E6%95%B0/"/>
-    <id>http://mengyujing.com/自定义bind函数/</id>
-    <published>2017-08-17T08:47:48.000Z</published>
-    <updated>2019-10-24T11:41:37.170Z</updated>
-    
-    <content type="html"><![CDATA[<p>MDN 对 <code>Function.prototype.bind()</code> 函数的介绍：</p><p>　　bind() 方法创建一个新的函数, 当被调用时，将其 this 关键字设置为提供的值，在调用新函数时，在任何提供之前提供一个给定的参数序列。<br><a id="more"></a><br><strong>语法：</strong></p><pre><code>fun.bind(thisArg[, arg1[, arg2[, ...]]])</code></pre><p><strong>参数：</strong></p><ul><li>thisArg<br>当绑定函数被调用时，该参数会作为原函数运行时的 this 指向。当使用 new 操作符调用绑定函数时，该参数无效。</li><li>arg1, arg2, …<br>当绑定函数被调用时，这些参数将置于实参之前传递给被绑定的方法。</li></ul><p><strong>返回值：</strong><br>　　返回由指定的 this 值和初始化参数改造的原函数拷贝</p><hr><p>为了更好的理解 bind 函数，我定义了一个 mybind 函数，并通过 mybind 函数实现了 bind 函数的作用。<br>mybind 函数代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Function.prototype.mybind = function() &#123;</span><br><span class="line">    if (arguments.length &lt; 1) &#123;</span><br><span class="line">        throw &apos;Function mybind requires at least one parameter&apos;;</span><br><span class="line">    &#125;</span><br><span class="line">    var that = this;</span><br><span class="line">    var $this = arguments[0];</span><br><span class="line">    var args = [];</span><br><span class="line">    for (var i = 0; i &lt; arguments.length; i++) &#123;</span><br><span class="line">        var arg = arguments[i];</span><br><span class="line">        if (i &gt; 0) &#123;</span><br><span class="line">            args.push(arg);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return function() &#123;</span><br><span class="line">        var newArgs = [];</span><br><span class="line">        for (var i = 0; i &lt; arguments.length; i++) &#123;</span><br><span class="line">            var arg = arguments[i];</span><br><span class="line">            newArgs.push(arg);</span><br><span class="line">        &#125;</span><br><span class="line">        that.apply($this, args.concat(newArgs));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>测试 mybind 函数的作用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">    uname: &apos;测试&apos;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">function fun(a, b) &#123;</span><br><span class="line">    console.log(this.uname, a, b);</span><br><span class="line">&#125;</span><br><span class="line">var fun1 = fun.mybind(obj, 12);</span><br><span class="line">fun1(23);</span><br></pre></td></tr></table></figure></p><p>运行后得到： <code>测试 12 23</code> ， mybind 函数基本实现了 bind 函数的功能。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;MDN 对 &lt;code&gt;Function.prototype.bind()&lt;/code&gt; 函数的介绍：&lt;/p&gt;
-&lt;p&gt;　　bind() 方法创建一个新的函数, 当被调用时，将其 this 关键字设置为提供的值，在调用新函数时，在任何提供之前提供一个给定的参数序列。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Javascript" scheme="http://mengyujing.com/categories/Javascript/"/>
-    
-    
-      <category term="自定义bind函数" scheme="http://mengyujing.com/tags/%E8%87%AA%E5%AE%9A%E4%B9%89bind%E5%87%BD%E6%95%B0/"/>
     
   </entry>
   
