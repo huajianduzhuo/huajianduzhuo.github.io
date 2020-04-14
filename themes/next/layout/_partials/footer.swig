@@ -14,6 +14,7 @@
     <i class="fa fa-{{ theme.authoricon }}"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">{{ config.author }}</span>
+  <a class="theme-link" href="http://www.beian.miit.gov.cn"> 京ICP备20011762号</a>
 </div>
 
 <!-- {% if theme.copyright %}
